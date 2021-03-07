@@ -6,24 +6,6 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="149dp" />
-
-    <TextView
-        android:id="@+id/player_name_input"
-        android:layout_width="229dp"
-        android:layout_height="50dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="285dp" />
-
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
@@ -33,7 +15,7 @@
         android:inputType="textPersonName"
         android:text="@string/Projekt_Name_Titel"
         android:textColor="@color/game_pink"
-        android:textSize="28sp"
+        android:textSize="28"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,13 +28,21 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text=" Name"
+        android:text="Name"
         android:textColor="@color/game_purple"
-        android:textSize="24sp"
+        android:textSize="25"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="212dp" />
+        tools:layout_editor_absoluteY="240dp" />
+
+    <TextView
+        android:id="@+id/player_name_input"
+        android:layout_width="229dp"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="313dp" />
 
     <EditText
         android:id="@+id/ship_color_text"
@@ -63,34 +53,25 @@
         android:inputType="textPersonName"
         android:text="Spaceship Color"
         android:textColor="@color/game_purple"
-        android:textSize="24sp"
+        android:textSize="25"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="370dp" />
+        tools:layout_editor_absoluteY="416dp" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteX="280dp"
+        tools:layout_editor_absoluteY="149dp" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="149dp" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="321dp"
-        tools:layout_editor_absoluteY="149dp" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteX="30dp"
         tools:layout_editor_absoluteY="149dp" />
 
     <ImageView
@@ -98,7 +79,23 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="149dp" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="149dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteX="180dp"
         tools:layout_editor_absoluteY="149dp" />
 
     <ImageView
@@ -106,22 +103,94 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="221dp"
+        tools:layout_editor_absoluteX="230dp"
         tools:layout_editor_absoluteY="149dp" />
 
     <ImageView
-        android:id="@+id/imageView13"
+        android:id="@+id/imageView9"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="271dp"
+        tools:layout_editor_absoluteX="330dp"
         tools:layout_editor_absoluteY="149dp" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="47dp"
-        android:layout_height="64dp"
-        app:srcCompat="@drawable/game_ship_tr0"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="454dp" />
+        android:id="@+id/redship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_red"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="516dp" />
+
+    <ImageView
+        android:id="@+id/orangeship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_orange"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="516dp" />
+
+    <ImageView
+        android:id="@+id/yellowship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_yellow"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="516dp" />
+
+    <ImageView
+        android:id="@+id/greenship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_green"
+        tools:layout_editor_absoluteX="241dp"
+        tools:layout_editor_absoluteY="516dp" />
+
+    <ImageView
+        android:id="@+id/lightblueship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_lightblue"
+        tools:layout_editor_absoluteX="316dp"
+        tools:layout_editor_absoluteY="516dp" />
+
+    <ImageView
+        android:id="@+id/blueship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_blue"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="591dp" />
+
+    <ImageView
+        android:id="@+id/pinkship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_pink"
+        tools:layout_editor_absoluteX="241dp"
+        tools:layout_editor_absoluteY="591dp" />
+
+    <ImageView
+        android:id="@+id/darkpurpship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_darkpurp"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="591dp" />
+
+    <ImageView
+        android:id="@+id/dirtywhiteship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_dirtywhite"
+        tools:layout_editor_absoluteX="316dp"
+        tools:layout_editor_absoluteY="591dp" />
+
+    <ImageView
+        android:id="@+id/purpleship"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/game_ship_purple"
+        tools:layout_editor_absoluteX="91dp"
+        tools:layout_editor_absoluteY="591dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
