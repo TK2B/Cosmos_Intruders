@@ -2,7 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="oval">
-            <!–            modify color to match your preferences–>
             <solid android:color="@color/game_yellow"/>
             <corners android:radius="50dp"/>
             <size android:width="50dp" android:height="50dp"/>

@@ -33,7 +33,7 @@
         android:inputType="textPersonName"
         android:text="@string/Projekt_Name_Titel"
         android:textColor="@color/game_pink"
-        android:textSize="28"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,9 +46,9 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
-        android:text="Name"
-        android:textColor="@color/game_purpel"
-        android:textSize="25"
+        android:text=" Name"
+        android:textColor="@color/game_purple"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,8 +62,8 @@
         android:gravity="center"
         android:inputType="textPersonName"
         android:text="Spaceship Color"
-        android:textColor="@color/game_purpel"
-        android:textSize="25"
+        android:textColor="@color/game_purple"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,4 +116,12 @@
         app:srcCompat="@drawable/game_hexagon_shape"
         tools:layout_editor_absoluteX="271dp"
         tools:layout_editor_absoluteY="149dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="47dp"
+        android:layout_height="64dp"
+        app:srcCompat="@drawable/game_ship_tr0"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="454dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
