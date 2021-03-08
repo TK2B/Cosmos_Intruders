@@ -9,4 +9,69 @@
     android:hapticFeedbackEnabled="false"
     tools:context=".Game">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="25dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_rhombus_shape"
+        tools:layout_editor_absoluteX="285dp"
+        tools:layout_editor_absoluteY="398dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteX="345dp"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteX="182dp"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteX="260dp"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="25dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/game_rhombus_shape"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="114dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        app:srcCompat="@drawable/game_ship_red"
+        tools:layout_editor_absoluteX="245dp"
+        tools:layout_editor_absoluteY="516dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

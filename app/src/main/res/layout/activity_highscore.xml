@@ -120,4 +120,5 @@
         app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName3"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/highscore_star" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
