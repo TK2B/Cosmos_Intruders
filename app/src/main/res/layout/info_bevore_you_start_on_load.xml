@@ -10,73 +10,55 @@
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="78dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
         android:text="@string/Projekt_Name_Titel"
         android:textColor="@color/game_pink"
         android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="78dp" />
 
     <EditText
         android:id="@+id/name_of_player_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="19dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
         android:text="Name"
         android:textColor="@color/game_purple"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/player_name_input"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="282dp" />
 
     <TextView
         android:id="@+id/player_name_input"
         android:layout_width="223dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="53dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/ship_color_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_of_player_info" />
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="355dp" />
 
     <EditText
         android:id="@+id/ship_color_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
         android:text="Spaceship Color"
         android:textColor="@color/game_purple"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/player_name_input" />
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="450dp" />
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="144dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/name_of_player_info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="405dp"
+        android:layout_height="112dp"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="144dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -144,12 +126,8 @@
         android:id="@+id/tableLayout2"
         android:layout_width="387dp"
         android:layout_height="147dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ship_color_text">
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="552dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -234,19 +212,12 @@
         android:id="@+id/group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="redship,orangeship,yellowship,greenship,lightblueship,dirtywhiteship,pinkship,darkpurpship,purpleship,blueship"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:constraint_referenced_ids="redship,orangeship,yellowship,greenship,lightblueship,dirtywhiteship,pinkship,darkpurpship,purpleship,blueship" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="redship,orangeship,yellowship,greenship,lightblueship,blueship,pinkship,darkpurpship"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:constraint_referenced_ids="redship,orangeship,yellowship,greenship,lightblueship,blueship,pinkship,darkpurpship" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

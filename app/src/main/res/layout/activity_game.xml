@@ -74,4 +74,14 @@
         tools:layout_editor_absoluteX="245dp"
         tools:layout_editor_absoluteY="516dp" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="184dp"
+        android:layout_height="38dp"
+        android:background="#D32121"
+        android:text="TextView"
+        android:textColor="@color/game_yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="119dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

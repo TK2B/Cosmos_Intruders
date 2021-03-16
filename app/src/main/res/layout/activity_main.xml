@@ -149,4 +149,13 @@
         app:srcCompat="@drawable/game_rhombus_shape"
         tools:layout_editor_absoluteX="296dp"
         tools:layout_editor_absoluteY="231dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="start_a_game"
+        android:text="TAP TO PLAY"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="596dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
