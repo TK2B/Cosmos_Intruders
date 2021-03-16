@@ -10,187 +10,243 @@
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="78dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
         android:text="@string/Projekt_Name_Titel"
         android:textColor="@color/game_pink"
-        android:textSize="28"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="78dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/name_of_player_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
         android:text="Name"
         android:textColor="@color/game_purple"
-        android:textSize="25"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/player_name_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="240dp" />
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
     <TextView
         android:id="@+id/player_name_input"
-        android:layout_width="229dp"
-        android:layout_height="50dp"
+        android:layout_width="223dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="53dp"
         android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/ship_color_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="313dp" />
+        app:layout_constraintTop_toBottomOf="@+id/name_of_player_info" />
 
     <EditText
         android:id="@+id/ship_color_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
         android:text="Spaceship Color"
         android:textColor="@color/game_purple"
-        android:textSize="25"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="416dp" />
+        app:layout_constraintTop_toBottomOf="@+id/player_name_input" />
 
-    <ImageView
-        android:id="@+id/imageView13"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="149dp" />
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/name_of_player_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="149dp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center">
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="149dp" />
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/game_hexagon_shape" />
 
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="149dp" />
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/game_hexagon_shape" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="180dp"
-        tools:layout_editor_absoluteY="149dp" />
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/game_hexagon_shape" />
 
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="149dp" />
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/game_hexagon_shape" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="330dp"
-        tools:layout_editor_absoluteY="149dp" />
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/game_hexagon_shape" />
 
-    <ImageView
-        android:id="@+id/redship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_red"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="516dp" />
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/game_hexagon_shape" />
 
-    <ImageView
-        android:id="@+id/orangeship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_orange"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="516dp" />
+            <ImageView
+                android:id="@+id/imageView14"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/game_hexagon_shape" />
+        </TableRow>
 
-    <ImageView
-        android:id="@+id/yellowship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_yellow"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="516dp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <ImageView
-        android:id="@+id/greenship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_green"
-        tools:layout_editor_absoluteX="241dp"
-        tools:layout_editor_absoluteY="516dp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <ImageView
-        android:id="@+id/lightblueship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_lightblue"
-        tools:layout_editor_absoluteX="316dp"
-        tools:layout_editor_absoluteY="516dp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
 
-    <ImageView
-        android:id="@+id/blueship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_blue"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="591dp" />
+    <TableLayout
+        android:id="@+id/tableLayout2"
+        android:layout_width="387dp"
+        android:layout_height="147dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ship_color_text">
 
-    <ImageView
-        android:id="@+id/pinkship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_pink"
-        tools:layout_editor_absoluteX="241dp"
-        tools:layout_editor_absoluteY="591dp" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/darkpurpship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_darkpurp"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="591dp" />
+            <ImageView
+                android:id="@+id/lightblueship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_lightblue" />
 
-    <ImageView
-        android:id="@+id/dirtywhiteship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_dirtywhite"
-        tools:layout_editor_absoluteX="316dp"
-        tools:layout_editor_absoluteY="591dp" />
+            <ImageView
+                android:id="@+id/greenship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_green" />
 
-    <ImageView
-        android:id="@+id/purpleship"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:srcCompat="@drawable/game_ship_purple"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="591dp" />
+            <ImageView
+                android:id="@+id/orangeship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_orange" />
+
+            <ImageView
+                android:id="@+id/redship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_red" />
+
+            <ImageView
+                android:id="@+id/yellowship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_yellow" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/blueship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_blue" />
+
+            <ImageView
+                android:id="@+id/dirtywhiteship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_dirtywhite" />
+
+            <ImageView
+                android:id="@+id/pinkship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_pink" />
+
+            <ImageView
+                android:id="@+id/purpleship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_purple" />
+
+            <ImageView
+                android:id="@+id/darkpurpship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/game_ship_darkpurp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="redship,orangeship,yellowship,greenship,lightblueship,dirtywhiteship,pinkship,darkpurpship,purpleship,blueship"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="redship,orangeship,yellowship,greenship,lightblueship,blueship,pinkship,darkpurpship"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
