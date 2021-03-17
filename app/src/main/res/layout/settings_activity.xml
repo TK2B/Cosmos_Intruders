@@ -5,14 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    android:backgroundTint="@color/black">
+    android:backgroundTint="@color/black"
+    android:visibility="visible"
+    tools:visibility="visible">
 
     <FrameLayout
         android:id="@+id/settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#000000"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
 
@@ -25,9 +29,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/game_purple"
         android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026" />
 
     <Button
         android:id="@+id/Music"
@@ -37,9 +43,12 @@
         android:text="Music"
         android:textColor="#000000"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SettingsPage" />
+        app:layout_constraintTop_toBottomOf="@+id/SettingsPage"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/SoundEffects"
@@ -60,9 +69,11 @@
         android:text="Notifications"
         android:textColor="#000000"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="435dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.726" />
 
     <Button
         android:id="@+id/Help"
@@ -75,15 +86,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Notifications" />
-
-    <Button
-        android:id="@+id/settingback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toStartOf="@+id/SettingsPage"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="18dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

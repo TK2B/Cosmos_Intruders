@@ -10,78 +10,121 @@
     tools:context=".Game">
 
     <ImageView
+        android:id="@+id/imageView31"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageView
+        android:id="@+id/imageView30"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView31"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/game_hexagon_shape"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageView
         android:id="@+id/imageView7"
         android:layout_width="25dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/game_rhombus_shape"
-        tools:layout_editor_absoluteX="285dp"
-        tools:layout_editor_absoluteY="398dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.787"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        app:srcCompat="@drawable/game_rhombus_shape" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="345dp"
         tools:layout_editor_absoluteY="33dp" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="33dp" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="99dp"
         tools:layout_editor_absoluteY="33dp" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="182dp"
         tools:layout_editor_absoluteY="33dp" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView6"
         app:srcCompat="@drawable/game_hexagon_shape"
-        tools:layout_editor_absoluteX="260dp"
         tools:layout_editor_absoluteY="33dp" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="25dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/game_rhombus_shape"
-        tools:layout_editor_absoluteX="193dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.647"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202"
+        app:srcCompat="@drawable/game_rhombus_shape" />
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#000000"
-        app:srcCompat="@drawable/game_ship_red"
-        tools:layout_editor_absoluteX="245dp"
-        tools:layout_editor_absoluteY="516dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825"
+        app:srcCompat="@drawable/game_ship_red" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/goto_highscores"
         android:layout_width="184dp"
         android:layout_height="38dp"
         android:background="#D32121"
-        android:text="TextView"
+        android:clickable="true"
+        android:onClick="goto_highscores"
+        android:text="Test View(Goto High Scores)"
         android:textColor="@color/game_yellow"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="119dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

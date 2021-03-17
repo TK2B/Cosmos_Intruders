@@ -15,7 +15,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void start_a_game(View view) {
-        Intent get_to_next_screem = new Intent(this, bevore_you_start.class);
-        startActivity(get_to_next_screem);
+        Intent get_to_next_screen = new Intent(this, bevore_you_start.class);
+        startActivity(get_to_next_screen);
+
+
+    }
+
+    public void goto_settings(View view) {
+        Intent get_to_setting_screen = new Intent(this, SettingsActivity.class);
+        startActivity(get_to_setting_screen);
     }
 }
