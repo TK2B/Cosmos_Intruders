@@ -150,6 +150,8 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         // Here we will initialize all the game objects
 
         // Make a new player space ship
+        playerShip = new PlayerShip(context, screenX, screenY);
+
 
         // Prepare the players bullet
 
@@ -198,6 +200,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
             boolean lost = false;
 
             // Move the player's ship
+            playerShip.update(fps);
 
             // Update the invaders if visible
 
@@ -237,7 +240,8 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 // Choose the brush color for drawing
                 paint.setColor(Color.argb(255, 255, 255, 255));
 
-                // Draw the player spaceship
+                // Now draw the player spaceship
+                canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 120, paint);   //TODO have a look at screenY it might be neccesarry to set lower/higher not sure because using an emulation of android in QEMU
 
                 // Draw the invaders
 
