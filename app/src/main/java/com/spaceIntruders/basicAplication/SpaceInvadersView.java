@@ -163,6 +163,13 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
 
         // Build an army of invaders
+        numInvaders = 0;
+        for(int column = 0; column < 6; column ++ ){
+            for(int row = 0; row < 5; row ++ ){
+                invaders[numInvaders] = new Invader(context, row, column, screenX, screenY);
+                numInvaders ++;
+            }
+        }
 
         // Build the shelters
 
@@ -194,6 +201,9 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
             // We will do something new here towards the end of the project
 
         }
+
+
+
     }
 
         private void update() {
@@ -207,7 +217,45 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
             // Move the player's ship
             playerShip.update(fps);
 
-            // Update the invaders if visible
+            // Update all the invaders if visible
+            for(int i = 0; i < numInvaders; i++){
+
+                if(invaders[i].getVisibility()) {
+                    // Move the next invader
+                    invaders[i].update(fps);
+
+                    // Does he want to take a shot?
+                    if(invaders[i].takeAim(playerShip.getX(),
+                            playerShip.getLength())){
+
+                        // If so try and spawn a bullet
+                        if(invadersBullets[nextBullet].shoot(invaders[i].getX()
+                                        + invaders[i].getLength() / 2,
+                                invaders[i].getY(), bullet.DOWN)) {
+
+                            // Shot fired
+                            // Prepare for the next shot
+                            nextBullet++;
+
+                            // Loop back to the first one if we have reached the last
+                            if (nextBullet == maxInvaderBullets) {
+                                // This stops the firing of another bullet until one completes its journey
+                                // Because if bullet 0 is still active shoot returns false.
+                                nextBullet = 0;
+                            }
+                        }
+                    }
+
+                    // If that move caused them to bump the screen change bumped to true
+                    if (invaders[i].getX() > screenX - invaders[i].getLength()
+                            || invaders[i].getX() < 0){
+
+                        bumped = true;
+
+                    }
+                }
+
+            }
 
             // Update all the invaders bullets if active
             for(int i = 0; i < invadersBullets.length; i++){
@@ -217,6 +265,22 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
             }
 
             // Did an invader bump into the edge of the screen
+            if(bumped){
+
+                // Move all the invaders down and change direction
+                for(int i = 0; i < numInvaders; i++){
+                    invaders[i].dropDownAndReverse();
+                    // Have the invaders landed
+                    if(invaders[i].getY() > screenY - screenY / 10){
+                        lost = true;
+                    }
+                }
+
+                // Increase the menace level
+                // By making the sounds more frequent
+                menaceInterval = menaceInterval - 80;
+            }
+
 
             if (lost) {
                 prepareLevel();
@@ -257,6 +321,15 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 120, paint);   //TODO have a look at screenY it might be neccesarry to set lower/higher not sure because using an emulation of android in QEMU
 
                 // Draw the invaders
+                for(int i = 0; i < numInvaders; i++){
+                    if(invaders[i].getVisibility()) {
+                        if(uhOrOh) {
+                            canvas.drawBitmap(invaders[i].getBitmap(), invaders[i].getX(), invaders[i].getY(), paint);
+                        }else{
+                            canvas.drawBitmap(invaders[i].getBitmap2(), invaders[i].getX(), invaders[i].getY(), paint);
+                        }
+                    }
+                }
 
                 // Draw the bricks if visible
 
@@ -309,20 +382,45 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         // The SurfaceView class implements onTouchListener
         // So we can override this method and detect screen touches.
         @Override
-        public boolean onTouchEvent (MotionEvent motionEvent){
+        public boolean onTouchEvent(MotionEvent motionEvent) {
 
             switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
 
                 // Player has touched the screen
                 case MotionEvent.ACTION_DOWN:
 
+                    paused = false;
+
+                    if(motionEvent.getY() > screenY - screenY / 8) {
+                        if (motionEvent.getX() > screenX / 2) {
+                            playerShip.setMovementState(playerShip.RIGHT);
+                        } else {
+                            playerShip.setMovementState(playerShip.LEFT);
+                        }
+
+                    }
+
+                    if(motionEvent.getY() < screenY - screenY / 8) {
+                        // Shots fired
+                        if(bullet.shoot(playerShip.getX()+
+                                playerShip.getLength()/2,screenY,bullet.UP)){
+                            soundPool.play(shootID, 1, 1, 0, 0, 1);
+                        }
+                    }
                     break;
 
                 // Player has removed finger from screen
                 case MotionEvent.ACTION_UP:
 
+                    if(motionEvent.getY() > screenY - screenY / 10) {
+                        playerShip.setMovementState(playerShip.STOPPED);
+                    }
+
                     break;
+
             }
+
             return true;
         }
-    }
+
+}

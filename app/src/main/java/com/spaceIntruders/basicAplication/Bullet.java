@@ -28,7 +28,7 @@ public class Bullet {
 
     // Going nowhere
     int heading = -1;
-    float speed =  350;
+    float speed =  350;  //TODO check if speed is ok ? Pleas check if the bullet array in view is working (Viewfile)
 
     private int width = 1;
     private int height;
