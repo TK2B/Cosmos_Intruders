@@ -71,6 +71,7 @@
         android:id="@+id/lightblueship2"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginStart="168dp"
         android:layout_marginTop="292dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
