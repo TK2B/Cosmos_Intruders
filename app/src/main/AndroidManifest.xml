@@ -13,7 +13,9 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".Game" />
+        <activity android:name=".Game"
+            android:screenOrientation="landscape"
+            />
         <activity android:name=".Highscore" />
         <activity android:name=".MainActivity">
             <intent-filter>
