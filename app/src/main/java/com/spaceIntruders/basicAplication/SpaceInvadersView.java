@@ -108,7 +108,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         screenX = x;
         screenY = y;
 
-        // This SoundPool is deprecated but don't worry
+        // This SoundPool is deprecated but don't worry // TODO there is a "beeter " newer way maybe you could read the refference ? Thats the way i knew (not shure on which android version it´´ running right
         soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
 
         try {
