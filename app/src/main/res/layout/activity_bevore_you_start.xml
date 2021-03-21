@@ -11,6 +11,8 @@ android:background="#000000">
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
@@ -20,8 +22,7 @@ android:background="#000000">
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/name_of_player_info"
@@ -37,19 +38,19 @@ android:background="#000000">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-        app:layout_constraintVertical_bias="0.717" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/player_name_input"
         android:layout_width="223dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="28dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/ship_color_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/name_of_player_info" />
 
     <EditText
         android:id="@+id/ship_color_text"
@@ -65,15 +66,13 @@ android:background="#000000">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.664" />
+        app:layout_constraintVertical_bias="0.527" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="405dp"
         android:layout_height="112dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="86dp"
-        app:layout_constraintBottom_toTopOf="@+id/name_of_player_info"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
@@ -144,8 +143,8 @@ android:background="#000000">
         android:id="@+id/tableLayout2"
         android:layout_width="387dp"
         android:layout_height="147dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="27dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ship_color_text">
@@ -155,34 +154,44 @@ android:background="#000000">
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/lightblueship"
+                android:id="@+id/redship"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                app:srcCompat="@drawable/game_ship_lightblue" />
-
-            <ImageView
-                android:id="@+id/greenship"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                app:srcCompat="@drawable/game_ship_green" />
+                android:clickable="true"
+                android:onClick="clickNew"
+                app:srcCompat="@drawable/game_ship_red" />
 
             <ImageView
                 android:id="@+id/orangeship"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
+                android:clickable="true"
+                android:onClick="clickNew"
                 app:srcCompat="@drawable/game_ship_orange" />
-
-            <ImageView
-                android:id="@+id/redship"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                app:srcCompat="@drawable/game_ship_red" />
 
             <ImageView
                 android:id="@+id/yellowship"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
+                android:clickable="true"
+                android:onClick="clickNew"
                 app:srcCompat="@drawable/game_ship_yellow" />
+
+            <ImageView
+                android:id="@+id/greenship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:clickable="true"
+                android:onClick="clickNew"
+                app:srcCompat="@drawable/game_ship_green" />
+
+            <ImageView
+                android:id="@+id/lightblueship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:clickable="true"
+                android:onClick="clickNew"
+                app:srcCompat="@drawable/game_ship_lightblue" />
         </TableRow>
 
         <TableRow
@@ -193,31 +202,42 @@ android:background="#000000">
                 android:id="@+id/blueship"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
+                android:clickable="true"
+                android:onClick="clickNew"
                 app:srcCompat="@drawable/game_ship_blue" />
-
-            <ImageView
-                android:id="@+id/dirtywhiteship"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                app:srcCompat="@drawable/game_ship_dirtywhite" />
-
-            <ImageView
-                android:id="@+id/pinkship"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                app:srcCompat="@drawable/game_ship_pink" />
 
             <ImageView
                 android:id="@+id/purpleship"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
+                android:clickable="true"
+                android:onClick="clickNew"
                 app:srcCompat="@drawable/game_ship_purple" />
 
             <ImageView
                 android:id="@+id/darkpurpship"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
+                android:clickable="true"
+                android:onClick="clickNew"
                 app:srcCompat="@drawable/game_ship_darkpurp" />
+
+            <ImageView
+                android:id="@+id/pinkship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:clickable="true"
+                android:onClick="clickNew"
+                app:srcCompat="@drawable/game_ship_pink" />
+
+            <ImageView
+                android:id="@+id/dirtywhiteship"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:clickable="true"
+                android:onClick="clickNew"
+                app:srcCompat="@drawable/game_ship_dirtywhite" />
+
         </TableRow>
 
         <TableRow
@@ -228,6 +248,7 @@ android:background="#000000">
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </TableLayout>
+
 
 <androidx.constraintlayout.widget.Group
     android:id="@+id/group"
@@ -245,11 +266,14 @@ android:background="#000000">
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginBottom="80dp"
         android:onClick="realy_start_a_Game"
         android:text="Start Game "
-        app:layout_constraintBottom_toTopOf="@+id/ship_color_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
