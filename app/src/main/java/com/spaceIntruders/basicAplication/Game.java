@@ -17,6 +17,8 @@ import android.view.Display;
 
 public class Game extends Activity {
 
+    SpaceInvadersView spaceInvadersView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //Remove title bar

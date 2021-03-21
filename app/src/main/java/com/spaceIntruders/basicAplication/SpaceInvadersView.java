@@ -4,16 +4,18 @@ import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 import java.io.IOException;
 
-public class SpaceInvadersView extends SurfaceView implements Runnable{
+public class SpaceInvadersView extends SurfaceView implements Runnable {
 
     Context context;
 
@@ -38,7 +40,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
     private long fps;
 
     // This is used to help calculate the fps
-    private private long timeThisFrame;
+    private long timeThisFrame;
 
     // The size of the screen in pixels
     private int screenX;
@@ -106,9 +108,9 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
         screenY = y;
 
         // This SoundPool is deprecated but don't worry
-        soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC,0);
+        soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
 
-        try{
+        try {
             // Create objects of the 2 required classes
             AssetManager assetManager = context.getAssets();
             AssetFileDescriptor descriptor;
@@ -135,7 +137,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
             descriptor = assetManager.openFd("oh.ogg");
             ohID = soundPool.load(descriptor, 0);
 
-        }catch(IOException e){
+        } catch (IOException e) {
             // Print an error message to the console
             Log.e("error", "failed to load sound files");
         }
@@ -157,4 +159,142 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
         // Build the shelters
 
+    }
+
+    @Override
+    public void run() {
+        while (playing) {
+
+            // Capture the current time in milliseconds in startFrameTime
+            long startFrameTime = System.currentTimeMillis();
+
+            // Update the frame
+            if (!paused) {
+                update();
+            }
+
+            // Draw the frame
+            draw();
+
+            // Calculate the fps this frame
+            // We can then use the result to
+            // time animations and more.
+            timeThisFrame = System.currentTimeMillis() - startFrameTime;
+            if (timeThisFrame >= 1) {
+                fps = 1000 / timeThisFrame;
+            }
+
+            // We will do something new here towards the end of the project
+
+        }
+    }
+
+        private void update() {
+
+            // Did an invader bump into the side of the screen
+            boolean bumped = false;
+
+            // Has the player lost
+            boolean lost = false;
+
+            // Move the player's ship
+
+            // Update the invaders if visible
+
+            // Update all the invaders bullets if active
+
+            // Did an invader bump into the edge of the screen
+
+            if (lost) {
+                prepareLevel();
+            }
+
+            // Update the players bullet
+
+            // Has the player's bullet hit the top of the screen
+
+            // Has an invaders bullet hit the bottom of the screen
+
+            // Has the player's bullet hit an invader
+
+            // Has an alien bullet hit a shelter brick
+
+            // Has a player bullet hit a shelter brick
+
+            // Has an invader bullet hit the player ship
+
+        }
+
+        private void draw () {
+            // Make sure our drawing surface is valid or we crash
+            if (ourHolder.getSurface().isValid()) {
+                // Lock the canvas ready to draw
+                canvas = ourHolder.lockCanvas();
+
+                // Draw the background color
+                canvas.drawColor(Color.argb(255, 26, 128, 182));
+
+                // Choose the brush color for drawing
+                paint.setColor(Color.argb(255, 255, 255, 255));
+
+                // Draw the player spaceship
+
+                // Draw the invaders
+
+                // Draw the bricks if visible
+
+                // Draw the players bullet if active
+
+                // Draw the invaders bullets if active
+
+                // Draw the score and remaining lives
+                // Change the brush color
+                paint.setColor(Color.argb(255, 249, 129, 0));
+                paint.setTextSize(40);
+                canvas.drawText("Score: " + score + "   Lives: " + lives, 10, 50, paint);
+
+                // Draw everything to the screen
+                ourHolder.unlockCanvasAndPost(canvas);
+            }
+        }
+
+        // If SpaceInvadersActivity is paused/stopped
+        // shutdown our thread.
+        public void pause () {
+            playing = false;
+            try {
+                gameThread.join();
+            } catch (InterruptedException e) {
+                Log.e("Error:", "joining thread");
+            }
+
+        }
+
+        // If SpaceInvadersActivity is started then
+        // start our thread.
+        public void resume () {
+            playing = true;
+            gameThread = new Thread(this);
+            gameThread.start();
+        }
+
+        // The SurfaceView class implements onTouchListener
+        // So we can override this method and detect screen touches.
+        @Override
+        public boolean onTouchEvent (MotionEvent motionEvent){
+
+            switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
+
+                // Player has touched the screen
+                case MotionEvent.ACTION_DOWN:
+
+                    break;
+
+                // Player has removed finger from screen
+                case MotionEvent.ACTION_UP:
+
+                    break;
+            }
+            return true;
+        }
     }
