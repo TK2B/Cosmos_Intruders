@@ -8,6 +8,9 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    // TODO IMPORTANT set right textviews in all activitys (input only where its needed Text within fields
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -149,6 +149,9 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
         // Here we will initialize all the game objects
 
+        // Reset the menace level
+        menaceInterval = 1000;  // TODO Harder Faster More
+
         // Make a new player space ship
         playerShip = new PlayerShip(context, screenX, screenY);
 
@@ -199,8 +202,28 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
             }
 
             // We will do something new here towards the end of the project
+            // Play a sound based on the menace level
+            if(!paused) {
+                if ((startFrameTime - lastMenaceTime) > menaceInterval) {
+                    if (uhOrOh) {
+                        // Play Uh
+                        soundPool.play(uhID, 1, 1, 0, 0, 1);
+
+                    } else {
+                        // Play Oh
+                        soundPool.play(ohID, 1, 1, 0, 0, 1);
+                    }
+
+                    // Reset the last menace time
+                    lastMenaceTime = System.currentTimeMillis();
+                    // Alter value of uhOrOh
+                    uhOrOh = !uhOrOh;
+                }
+            }
 
         }
+
+
 
 
 
