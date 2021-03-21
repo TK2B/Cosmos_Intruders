@@ -16,6 +16,8 @@ import android.view.SurfaceView;
 
 import java.io.IOException;
 
+import static android.media.AudioManager.STREAM_MUSIC;
+
 public class SpaceInvadersView extends SurfaceView implements Runnable {
 
     Context context;
@@ -108,7 +110,8 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         screenX = x;
         screenY = y;
 
-        // This SoundPool is deprecated but don't worry // TODO there is a "beeter " newer way maybe you could read the refference ? Thats the way i knew (not shure on which android version it´´ running right
+        // This SoundPool is deprecated  // TODO there is a "better " newer way maybe you could read the refference ? Thats the way i knew (not shure on which android version it´´ running right  https://developer.android.com/reference/android/media/SoundPool.Builder
+        // soundPool= new SoundPool.Builder(10, 0, STREAM_MUSIC);
         soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
 
         try {
@@ -324,6 +327,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 bullet.update(fps);
             }
 
+
             // Has the player's bullet hit the top of the screen
             if(bullet.getImpactPointY() < 0){
                 bullet.setInactive();
@@ -450,6 +454,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 }
 
 
+
                 // Draw the invaders bullets if active
 
                 // Update all the invader's bullets if active
@@ -511,7 +516,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
                     }
 
-                    if(motionEvent.getY() < screenY - screenY / 8) {
+                    if(motionEvent.getY() < screenY - screenY / 8) {   // TODO Please check out if that is a good idea otherwise we have to add a fire button
                         // Shots fired
                         if(bullet.shoot(playerShip.getX()+
                                 playerShip.getLength()/2,screenY,bullet.UP)){

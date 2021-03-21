@@ -28,7 +28,7 @@ public class Bullet {
 
     // Going nowhere
     int heading = -1;
-    float speed =  350;  //TODO check if speed is ok ? Pleas check if the bullet array in view is working (Viewfile)
+    float speed =  350;
 
     private int width = 1;
     private int height;
@@ -42,6 +42,7 @@ public class Bullet {
 
         rect = new RectF();
     }
+
 
     public RectF getRect(){
         return  rect;
@@ -76,6 +77,7 @@ public class Bullet {
         // Bullet already active
         return false;
     }
+
 
     public void update(long fps){
 
