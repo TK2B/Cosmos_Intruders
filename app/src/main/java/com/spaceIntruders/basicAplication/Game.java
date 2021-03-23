@@ -25,7 +25,7 @@ public class Game extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         //Remove notification bar
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); // TODO Check alternativ 4 FLAG_Ful_...
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 

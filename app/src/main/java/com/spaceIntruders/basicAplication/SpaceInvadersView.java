@@ -154,7 +154,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         // Here we will initialize all the game objects
 
         // Reset the menace level
-        menaceInterval = 1000;  // TODO Harder Faster
+        menaceInterval = 200;  // TODO Harder Faster
 
         // Make a new player space ship
         playerShip = new PlayerShip(context, screenX, screenY);
