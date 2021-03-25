@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.spaceIntruders.basicAplication.view.Highscore;
+
 public class Game_old_default extends AppCompatActivity {
 
     @Override

@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".bevore_you_start"></activity>
+        <activity android:name=".view.bevore_you_start"></activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".view.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".Game"
+        <activity android:name=".view.Game"
             android:screenOrientation="landscape"
             />
-        <activity android:name=".Highscore" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.Highscore" />
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

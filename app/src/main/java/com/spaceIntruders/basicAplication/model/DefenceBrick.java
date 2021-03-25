@@ -1,4 +1,4 @@
-package com.spaceIntruders.basicAplication;
+package com.spaceIntruders.basicAplication.model;
 
 import android.graphics.RectF;
 

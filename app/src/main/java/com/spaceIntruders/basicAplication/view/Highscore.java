@@ -1,8 +1,10 @@
-package com.spaceIntruders.basicAplication;
+package com.spaceIntruders.basicAplication.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.spaceIntruders.basicAplication.R;
 
 public class Highscore extends AppCompatActivity {
 

@@ -1,19 +1,18 @@
-package com.spaceIntruders.basicAplication;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.spaceIntruders.basicAplication.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
 import android.graphics.Point;
-import android.os.Bundle;
 import android.view.Display;
+
+import com.spaceIntruders.basicAplication.R;
+import com.spaceIntruders.basicAplication.view.Highscore;
+import com.spaceIntruders.basicAplication.viewmodel.SpaceInvadersView;
 
 public class Game extends Activity {
 

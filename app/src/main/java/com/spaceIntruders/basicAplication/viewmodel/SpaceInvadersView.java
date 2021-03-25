@@ -1,4 +1,4 @@
-package com.spaceIntruders.basicAplication;
+package com.spaceIntruders.basicAplication.viewmodel;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
@@ -14,9 +14,12 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import java.io.IOException;
+import com.spaceIntruders.basicAplication.model.Bullet;
+import com.spaceIntruders.basicAplication.model.DefenceBrick;
+import com.spaceIntruders.basicAplication.model.Invader;
+import com.spaceIntruders.basicAplication.model.PlayerShip;
 
-import static android.media.AudioManager.STREAM_MUSIC;
+import java.io.IOException;
 
 public class SpaceInvadersView extends SurfaceView implements Runnable {
 

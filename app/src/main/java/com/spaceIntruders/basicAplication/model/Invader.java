@@ -1,9 +1,11 @@
-package com.spaceIntruders.basicAplication;
+package com.spaceIntruders.basicAplication.model;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.RectF;
+
+import com.spaceIntruders.basicAplication.R;
 
 import java.util.Random;
 

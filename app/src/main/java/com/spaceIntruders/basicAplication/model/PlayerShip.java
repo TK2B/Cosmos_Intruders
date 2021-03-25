@@ -1,4 +1,4 @@
-package com.spaceIntruders.basicAplication;
+package com.spaceIntruders.basicAplication.model;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.shapes.Shape;
+
+import com.spaceIntruders.basicAplication.R;
 
 public class PlayerShip {
 
