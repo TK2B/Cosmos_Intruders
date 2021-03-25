@@ -419,6 +419,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         }
 
         private void draw () {
+        //TODO set colors if you want to use bitmaps you need to apply colorfilters https://stackoverflow.com/questions/5699810/how-to-change-bitmap-image-color-in-android
             // Make sure our drawing surface is valid or we crash
             if (ourHolder.getSurface().isValid()) {
                 // Lock the canvas ready to draw
@@ -428,12 +429,14 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 canvas.drawColor(Color.argb(255, 5, 5, 5));
 
                 // Choose the brush color for drawing
-                paint.setColor(Color.argb(255, 255, 255, 255));
+                paint.setColor(Color.argb(255, 85, 0, 51));
 
                 // Now draw the player spaceship
                 canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 120, paint);   //TODO have a look at screenY it might be neccesarry to set lower/higher not sure because using an emulation of android in QEMU
 
                 // Draw the invaders
+               // paint.setColor(Color.argb(255, 255, 255, 255));
+
                 for(int i = 0; i < numInvaders; i++){
                     if(invaders[i].getVisibility()) {
                         if(uhOrOh) {
@@ -445,6 +448,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 }
 
                 // Draw the bricks if visible
+                paint.setColor(Color.argb(255, 0, 0, 91));
                 for(int i = 0; i < numBricks; i++){
                     if(bricks[i].getVisibility()) {
                         canvas.drawRect(bricks[i].getRect(), paint);
@@ -452,6 +456,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 }
 
                 // Draw the players bullet if active
+                paint.setColor(Color.argb(255, 255, 255, 255));
                 if(bullet.getStatus()){
                     canvas.drawRect(bullet.getRect(), paint);
                 }

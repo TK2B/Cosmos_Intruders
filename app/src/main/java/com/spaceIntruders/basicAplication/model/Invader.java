@@ -54,7 +54,7 @@ public class Invader {
         int padding = screenX / 25;
 
         x = column * (length + padding);
-        y = row * (length + padding/4);
+        y = row * (length + padding/4)+60;  // Sets y Start lower (to view Score and Lives
 
         // Initialize the bitmap
         bitmap1 = BitmapFactory.decodeResource(context.getResources(), R.drawable.invader1);
