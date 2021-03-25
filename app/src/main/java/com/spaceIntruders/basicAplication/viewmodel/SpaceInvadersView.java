@@ -429,13 +429,13 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 canvas.drawColor(Color.argb(255, 5, 5, 5));
 
                 // Choose the brush color for drawing
-                paint.setColor(Color.argb(255, 85, 0, 51));
+                //paint.setColor(Color.argb(255, 85, 0, 51)); // overwrite in line 451
 
                 // Now draw the player spaceship
                 canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 120, paint);   //TODO have a look at screenY it might be neccesarry to set lower/higher not sure because using an emulation of android in QEMU
 
                 // Draw the invaders
-               // paint.setColor(Color.argb(255, 255, 255, 255));
+
 
                 for(int i = 0; i < numInvaders; i++){
                     if(invaders[i].getVisibility()) {
@@ -456,7 +456,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 }
 
                 // Draw the players bullet if active
-                paint.setColor(Color.argb(255, 255, 255, 255));
+                paint.setColor(Color.argb(255, 232, 222, 0));
                 if(bullet.getStatus()){
                     canvas.drawRect(bullet.getRect(), paint);
                 }
@@ -464,7 +464,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
 
                 // Draw the invaders bullets if active
-
+                paint.setColor(Color.argb(255, 0, 232, 232));
                 // Update all the invader's bullets if active
                 for(int i = 0; i < invadersBullets.length; i++){
                     if(invadersBullets[i].getStatus()) {
@@ -474,7 +474,8 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
                 // Draw the score and remaining lives
                 // Change the brush color
-                paint.setColor(Color.argb(255, 249, 129, 0));
+                //TODO you may change it to a Textview i choose to draw it for consitency of design
+                paint.setColor(Color.argb(255, 216, 0, 131));
                 paint.setTextSize(40);
                 canvas.drawText("Score: " + score + "   Lives: " + lives, 10, 50, paint);
 
