@@ -54,6 +54,8 @@ public class PlayerShip {
         y = screenY - 20;
 
         // Initialize the bitmap
+        //Drawable shape = context.getResources().getDrawable(R.drawable.game_ship_darkpurp);
+        //Bitmap bitmap = Bitmap.createBitmap( shape.getIntrinsicWidth(), shape.getIntrinsicHeight(),Bitmap.Config.ARGB_8888);
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.playership);  //TODO Change to Vector shape implement method (or grab from screen that leads to this acitivity ) to get color please think about to declare the var on the right spot because of scope
 
 
