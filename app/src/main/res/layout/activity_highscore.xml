@@ -7,7 +7,7 @@
     android:background="#000000"
     tools:context=".view.Highscore">
 
-    <EditText
+    <TextView
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/game_hexagon_shape" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="165dp"
         android:layout_height="52dp"

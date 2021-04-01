@@ -80,14 +80,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/game_ship_lightblue" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextTextPersonName4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:clickable="false"
         android:ems="10"
         android:gravity="center"
-        android:inputType="textPersonName"
         android:text="@string/Projekt_Name_Titel"
         android:textColor="@color/game_pink"
         android:textSize="28sp"
