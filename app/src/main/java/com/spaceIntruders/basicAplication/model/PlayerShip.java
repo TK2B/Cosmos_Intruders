@@ -56,12 +56,19 @@ public class PlayerShip {
         // Initialize the bitmap
         //Drawable shape = context.getResources().getDrawable(R.drawable.game_ship_darkpurp);
         //Bitmap bitmap = Bitmap.createBitmap( shape.getIntrinsicWidth(), shape.getIntrinsicHeight(),Bitmap.Config.ARGB_8888);
+        // TODO Make array of ships and extend Constructor to take Color (by number from calling class) This can be done later
+        /*
+        Drawable [] arrayWithShipShapes = {
+                R.drawable.dirtywhiteship, R.drawable.lightblueship, R.drawable.orangeship.......
+        };
+        */
+
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.dirtywhiteship);  //TODO Change to Vector shape implement method (or grab from screen that leads to this acitivity ) to get color please think about to declare the var on the right spot because of scope
 
 
         // stretch the bitmap to a size appropriate for the screen resolution
         bitmap = Bitmap.createScaledBitmap(bitmap,
-                (int) (length),
+                (int) (length*0.65),  //TODO Check final size (now dependign on screen size ) hardcoded Fix We have to make retc graphics
                 (int) (height),
                 false);
 

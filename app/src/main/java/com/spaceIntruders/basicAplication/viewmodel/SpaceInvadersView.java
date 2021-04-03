@@ -357,7 +357,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                             if(score == numInvaders * 10){
                                 paused = true;
                                 score = 0;
-                                lives = 3;
+                                lives = 5;
                                 prepareLevel();
                             }
                         }
