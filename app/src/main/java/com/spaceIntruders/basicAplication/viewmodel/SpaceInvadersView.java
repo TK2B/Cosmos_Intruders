@@ -84,7 +84,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
     int score = 0;
 
     // Lives
-    private int lives = 3;
+    private int lives = 5;
 
     // How menacing should the sound be?
     private long menaceInterval = 1000;

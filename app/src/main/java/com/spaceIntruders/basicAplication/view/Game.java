@@ -15,6 +15,7 @@ import com.spaceIntruders.basicAplication.view.Highscore;
 import com.spaceIntruders.basicAplication.viewmodel.SpaceInvadersView;
 
 public class Game extends Activity {
+    //TODO take incoming Data from intent and hand it over to Spaceinvaders view to set the model classes there
 
     SpaceInvadersView spaceInvadersView;
 
