@@ -56,7 +56,7 @@ public class PlayerShip {
         // Initialize the bitmap
         //Drawable shape = context.getResources().getDrawable(R.drawable.game_ship_darkpurp);
         //Bitmap bitmap = Bitmap.createBitmap( shape.getIntrinsicWidth(), shape.getIntrinsicHeight(),Bitmap.Config.ARGB_8888);
-        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.playership);  //TODO Change to Vector shape implement method (or grab from screen that leads to this acitivity ) to get color please think about to declare the var on the right spot because of scope
+        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.dirtywhiteship);  //TODO Change to Vector shape implement method (or grab from screen that leads to this acitivity ) to get color please think about to declare the var on the right spot because of scope
 
 
         // stretch the bitmap to a size appropriate for the screen resolution

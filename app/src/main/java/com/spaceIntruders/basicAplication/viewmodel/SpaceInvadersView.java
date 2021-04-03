@@ -441,8 +441,6 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                     if(invaders[i].getVisibility()) {
                         if(uhOrOh) {
                             canvas.drawBitmap(invaders[i].getBitmap(), invaders[i].getX(), invaders[i].getY(), paint);
-                        }else{
-                            canvas.drawBitmap(invaders[i].getBitmap2(), invaders[i].getX(), invaders[i].getY(), paint);
                         }
                     }
                 }
