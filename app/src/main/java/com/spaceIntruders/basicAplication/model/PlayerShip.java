@@ -46,7 +46,7 @@ public class PlayerShip {
         // Initialize a blank RectF
         rect = new RectF();
 
-        length = screenX/10;
+        length = (float) (screenX/10 *0.65); //TODO (SOLVED ) Check final size (now dependign on screen size ) hardcoded Fix We have to make retc graphics
         height = screenY/10;
 
         // Start ship in roughly the screen centre
@@ -68,7 +68,7 @@ public class PlayerShip {
 
         // stretch the bitmap to a size appropriate for the screen resolution
         bitmap = Bitmap.createScaledBitmap(bitmap,
-                (int) (length*0.65),  //TODO Check final size (now dependign on screen size ) hardcoded Fix We have to make retc graphics
+                (int) (length),
                 (int) (height),
                 false);
 
