@@ -3,5 +3,13 @@
     android:width="100dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
-    <path android:fillColor="@color/game_dark_purple" android:pathData="M1,21H23L12,2" />
+    <group
+        android:name="rotationGroup"
+        android:pivotX="300.0"
+        android:pivotY="300.0">
+    <path
+        android:name="v"
+        android:fillColor="@color/game_dark_purple"
+        android:pathData="M1,21H23L12,2" />
+    </group>
 </vector>

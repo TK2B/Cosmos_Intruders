@@ -1,6 +1,7 @@
 package com.spaceIntruders.basicAplication.viewmodel;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.graphics.Canvas;
@@ -13,11 +14,13 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
 import com.spaceIntruders.basicAplication.model.Bullet;
 import com.spaceIntruders.basicAplication.model.DefenceBrick;
 import com.spaceIntruders.basicAplication.model.Invader;
 import com.spaceIntruders.basicAplication.model.PlayerShip;
+import com.spaceIntruders.basicAplication.view.Highscore;
 
 import java.io.IOException;
 
@@ -152,6 +155,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         prepareLevel();
     }
 
+
     private void prepareLevel() {
 
         // Here we will initialize all the game objects
@@ -193,6 +197,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         }
 
     }
+
 
     @Override
     public void run() {

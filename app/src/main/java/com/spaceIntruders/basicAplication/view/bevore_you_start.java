@@ -27,9 +27,11 @@ public class bevore_you_start extends AppCompatActivity {
 
     public void realy_start_a_Game(View view) {
         Intent gotonextActivity = new Intent(this, Game.class);
+        Intent get_to_highscores = new Intent(this, Highscore.class);
         EditText editText = (EditText) findViewById(R.id.player_name_input);
         String message = editText.getText().toString();
         gotonextActivity.putExtra("nameWeWantToSend", message);
+        get_to_highscores.putExtra("nameWeWantToSend", message);
         startActivity(gotonextActivity);
     }
 }

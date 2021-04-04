@@ -6,22 +6,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.spaceIntruders.basicAplication.R;
 
 public class Highscore extends AppCompatActivity {
 
+    TextView score;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
+
+        Intent highScoresIntent = getIntent();
+        String message = highScoresIntent.getStringExtra("nameWeWantToSend");
+
     }
 
-    public void realy_start_a_Game(View view) {
-        Intent gotonextActivity = new Intent(this, Game.class);
-        EditText editText = (EditText) findViewById(R.id.player_name_input);
-        String message = editText.getText().toString();
-        gotonextActivity.putExtra("nameWeWantToSend", message);
-        startActivity(gotonextActivity);
+    public void playAgain(View view) {
+        Intent getToSelectScreen = new Intent(this, bevore_you_start.class);
+        startActivity(getToSelectScreen);
     }
 }
