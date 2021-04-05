@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(get_to_next_screen);
     }
 
-    public void goto_settings(View view) {
-        Intent get_to_setting_screen = new Intent(this, SettingsActivity.class);
-        startActivity(get_to_setting_screen);
+    public void highScores(View view) {
+        Intent get_to_high_scores = new Intent(this, Highscore.class);
+        startActivity(get_to_high_scores);
     }
 }
