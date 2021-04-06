@@ -1,16 +1,14 @@
-package com.spaceIntruders.basicAplication.view;
+package com.spaceIntruders.SpaceIntruders_game.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.spaceIntruders.basicAplication.R;
-import com.spaceIntruders.basicAplication.view.Game;
 
 public class bevore_you_start extends AppCompatActivity {
 

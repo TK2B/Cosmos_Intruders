@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".view.bevore_you_start"></activity>
+        <activity android:name="com.spaceIntruders.SpaceIntruders_game.view.bevore_you_start"></activity>
         <activity
-            android:name=".view.SettingsActivity"
+            android:name="com.spaceIntruders.SpaceIntruders_game.view.SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".view.Game"
+        <activity android:name="com.spaceIntruders.SpaceIntruders_game.view.Game"
             android:screenOrientation="landscape"
             />
-        <activity android:name=".view.Highscore" />
-        <activity android:name=".view.MainActivity">
+        <activity android:name="com.spaceIntruders.SpaceIntruders_game.view.Highscore" />
+        <activity android:name="com.spaceIntruders.SpaceIntruders_game.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

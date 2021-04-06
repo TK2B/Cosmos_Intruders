@@ -1,4 +1,4 @@
-package com.spaceIntruders.basicAplication.viewmodel;
+package com.spaceIntruders.SpaceIntruders_game.viewmodel;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,11 +16,11 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 
-import com.spaceIntruders.basicAplication.model.Bullet;
-import com.spaceIntruders.basicAplication.model.DefenceBrick;
-import com.spaceIntruders.basicAplication.model.Invader;
-import com.spaceIntruders.basicAplication.model.PlayerShip;
-import com.spaceIntruders.basicAplication.view.Highscore;
+import com.spaceIntruders.SpaceIntruders_game.model.Bullet;
+import com.spaceIntruders.SpaceIntruders_game.model.DefenceBrick;
+import com.spaceIntruders.SpaceIntruders_game.model.Invader;
+import com.spaceIntruders.SpaceIntruders_game.model.PlayerShip;
+//import com.spaceIntruders.SpaceIntruders_game.model.Highscore;
 
 import java.io.IOException;
 

@@ -1,11 +1,10 @@
-package com.spaceIntruders.basicAplication.view;
+package com.spaceIntruders.SpaceIntruders_game.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 
 import com.spaceIntruders.basicAplication.R;
 

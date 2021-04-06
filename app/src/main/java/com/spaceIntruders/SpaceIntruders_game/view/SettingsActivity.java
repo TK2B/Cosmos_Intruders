@@ -1,4 +1,4 @@
-package com.spaceIntruders.basicAplication.view;
+package com.spaceIntruders.SpaceIntruders_game.view;
 
 import android.os.Bundle;
 

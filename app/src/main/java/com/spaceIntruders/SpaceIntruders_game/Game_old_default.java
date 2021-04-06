@@ -1,4 +1,4 @@
-package com.spaceIntruders.basicAplication;
+package com.spaceIntruders.SpaceIntruders_game;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.spaceIntruders.basicAplication.view.Highscore;
+import com.spaceIntruders.SpaceIntruders_game.view.Highscore;
+import com.spaceIntruders.basicAplication.R;
 
 public class Game_old_default extends AppCompatActivity {
 

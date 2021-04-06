@@ -1,4 +1,4 @@
-package com.spaceIntruders.basicAplication.view;
+package com.spaceIntruders.SpaceIntruders_game.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +10,8 @@ import android.app.Activity;
 import android.graphics.Point;
 import android.view.Display;
 
+import com.spaceIntruders.SpaceIntruders_game.viewmodel.SpaceInvadersView;
 import com.spaceIntruders.basicAplication.R;
-import com.spaceIntruders.basicAplication.view.Highscore;
-import com.spaceIntruders.basicAplication.viewmodel.SpaceInvadersView;
 
 public class Game extends Activity {
     //TODO take incoming Data from intent and hand it over to Spaceinvaders view to set the model classes there

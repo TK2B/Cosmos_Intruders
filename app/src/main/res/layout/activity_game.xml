@@ -7,7 +7,7 @@
     android:background="#000000"
     android:backgroundTintMode="src_atop"
     android:hapticFeedbackEnabled="false"
-    tools:context=".view.Game">
+    tools:context="com.spaceIntruders.SpaceIntruders_game.view.Game">
 
     <ImageView
         android:id="@+id/imageView31"
