@@ -46,8 +46,8 @@ public class Invader {
         // Initialize a blank RectF
         rect = new RectF();
 
-        length = screenX / 20;
-        height = screenY / 10;
+        length = (float) (screenX / 20 );
+        height = (float) (screenY / 10*  0.66);
 
         isVisible = true;
 
@@ -59,6 +59,8 @@ public class Invader {
         // Initialize the bitmap
         bitmap1 = BitmapFactory.decodeResource(context.getResources(), R.drawable.gamehexagon1);
         bitmap2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.gamehexagon2);
+
+       // TODO figure out why bmt2 isnt showing up
 
         // stretch the first bitmap to a size appropriate for the screen resolution
         bitmap1 = Bitmap.createScaledBitmap(bitmap1,
