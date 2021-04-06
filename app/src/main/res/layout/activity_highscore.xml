@@ -11,18 +11,13 @@
         android:id="@+id/playAgain"
         android:layout_width="153dp"
         android:layout_height="73dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginBottom="44dp"
         android:onClick="playAgain"
         android:text="TAP TO PLAY AGAIN"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView29"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:layout_editor_absoluteX="127dp" />
 
     <TableRow
+        android:id="@+id/tableRow"
         android:layout_width="408dp"
         android:layout_height="79dp"
         android:layout_gravity="center"
@@ -86,12 +81,8 @@
         android:text="@string/Projekt_Name_Titel"
         android:textColor="@color/game_pink"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="83dp" />
 
     <TextView
         android:id="@+id/editTextTextPersonName3"
@@ -138,5 +129,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/highscore_star" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview"
+        android:layout_width="304dp"
+        android:layout_height="303dp"
+        app:layout_constraintBottom_toTopOf="@+id/playAgain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableRow"
+        tools:listitem="@layout/recyvlerview_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
