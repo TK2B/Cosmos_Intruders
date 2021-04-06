@@ -64,7 +64,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
     // The invaders bullets
     private Bullet[] invadersBullets = new Bullet[200];
     private int nextBullet;
-    private int maxInvaderBullets = 10;
+    private int maxInvaderBullets = 10; //TODO INFO maxInvaderBullets
 
     // Up to 60 invaders
     Invader[] invaders = new Invader[60];
@@ -99,7 +99,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
     // When the we initialize (call new()) on gameView
 // This special constructor method runs
-    public SpaceInvadersView(Context context, int x, int y) {
+    public SpaceInvadersView(Context context, int x, int y) {  // TODO INFO place lvel int in contructor to make it harder (Level) and build some logic that make sure it starts with the level set - etc increase the level after succsess
 
         // The next line of code asks the
         // SurfaceView class to set up our object.
@@ -179,7 +179,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         // Build an army of invaders
         numInvaders = 0;
         for(int column = 0; column < 6; column ++ ){
-            for(int row = 0; row < 5; row ++ ){
+            for(int row = 0; row < 3; row ++ ){   //TODO INFO changed from 5 to 3 - have a look at this line for more levels or setting page
                 invaders[numInvaders] = new Invader(context, row, column, screenX, screenY);
                 numInvaders ++;
             }
