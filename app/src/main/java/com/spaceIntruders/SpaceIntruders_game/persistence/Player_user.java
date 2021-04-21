@@ -5,7 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "users")
 public class Player_user {
     @PrimaryKey
     private int uid;
@@ -41,4 +41,4 @@ public class Player_user {
    // TODO something like an override toString() (vor printing )
 
     }
-}
+

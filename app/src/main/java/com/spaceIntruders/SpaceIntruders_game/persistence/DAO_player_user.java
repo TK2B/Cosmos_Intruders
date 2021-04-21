@@ -2,6 +2,7 @@ package com.spaceIntruders.SpaceIntruders_game.persistence;
 
 import android.provider.SyncStateContract;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -16,12 +17,11 @@ import com.spaceIntruders.SpaceIntruders_game.persistence.AppDatabase;
 
 @Dao
 public interface DAO_player_user {
-    @Query(value = "SELECT * FROM myPlayerDatebase")   //ToDO make sure it exists manual https://www.pluralsight.com/guides/making-a-notes-app-using-room-database
-    List <Player_user> getAll();
 
 
-    @Query("SELECT * FROM Player_user ORDER BY highScore ASC")
-    List <Player_user> getAll();
+
+    @Query("SELECT * FROM users ORDER BY highScore ASC Limit 10")
+    LiveData <List <Player_user>> getAll();
 
     //TODO make SQL request that shows maybe the first 5 - 10 highscores
 
