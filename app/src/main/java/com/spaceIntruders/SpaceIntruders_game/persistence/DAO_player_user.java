@@ -20,7 +20,7 @@ public interface DAO_player_user {
 
 
 
-    @Query("SELECT * FROM users ORDER BY highScore ASC Limit 10")
+    @Query("SELECT * FROM users ORDER BY highScore DESC Limit 10")
     LiveData <List <Player_user>> getAll();
 
     //TODO make SQL request that shows maybe the first 5 - 10 highscores
