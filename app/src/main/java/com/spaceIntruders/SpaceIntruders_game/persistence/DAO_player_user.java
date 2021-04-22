@@ -26,7 +26,7 @@ public interface DAO_player_user {
     //TODO make SQL request that shows maybe the first 5 - 10 highscores
 
 
-    @Query("SELECT * FROM Player_user WHERE first_name LIKE :first LIMIT 1")
+    @Query("SELECT * FROM users WHERE first_name LIKE :first LIMIT 1")
     Player_user findByName(String first);
 
     /*
@@ -34,7 +34,7 @@ public interface DAO_player_user {
      * @param note, object to be inserted
      */
     @Insert
-    void insertAll(Player_user users);
+    void insert(Player_user user);
     /*
      * delete the object from database
      * @param note, object to be deleted
@@ -56,4 +56,7 @@ public interface DAO_player_user {
      */
     @Update
     void update(Player_user repos);
+
+    @Query("DELETE FROM users")
+    void nukeTable();
 }

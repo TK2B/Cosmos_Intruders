@@ -11,46 +11,55 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-@Database(entities = {Player_user.class}, version = 1)
+@Database(entities = {Player_user.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
-    private static final String TABLE_NAME_PLAYER_USER = "myPlayerDatebase";
-   // public abstract DAO_player_user getPlayer_userDao;
 
+    abstract DAO_player_user dao_Player_User();
 
-    private static AppDatabase Player_DB;   // Var 4 Databasee
-    private static final  int numberOfThreads = 4;
-    //static final ExecutorService databaseWriteExecutor = Executor.newFixedThreadPool(numberOfThreads);
-/*
+    private static volatile AppDatabase INSTANCE;
+    private static final int NUMBER_OF_THREADS = 4;
+    static final ExecutorService databaseWriteExecutor =
+            Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    public static volatile AppDatabase getInstance(Context context) {
-        if (null == Player_DB) {
-            Player_DB = buildDatabaseInstance(context);
+    static AppDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (AppDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            AppDatabase.class, "user_db")
+                            .addCallback(sRoomDatabaseCallback)
+                            .build();
+                }
+            }
         }
-        return Player_DB;
+        return INSTANCE;
     }
 
-    private static AppDatabase buildDatabaseInstance(Context context) {
-        return Room.databaseBuilder(context,
-                AppDatabase.class,
-               TABLE_NAME_PLAYER_USER)  // TODO MAke Constant for DAO and Here
-                .allowMainThreadQueries().build();
-    }
 
-    public void cleanUp(){
-        AppDatabase = null;
-    }
-
-    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback(){
+    private static RoomDatabase.Callback sRoomDatabaseCallback = new RoomDatabase.Callback() {
         @Override
-        public void onCreate{@NonNull SupportSQLiteDatabase db){
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
 
-            databaseWriteExecutor.execute(() ->{
-                Player_user player_user
+            databaseWriteExecutor.execute(() -> {
+                Player_user one_player;
+                DAO_player_user dao = INSTANCE.dao_Player_User();
+                dao.nukeTable();
+                one_player = new Player_user(1, "AAA", 9999);
+                dao.insert(one_player);
+                one_player = new Player_user(2, "BBB", 8888);
+                dao.insert(one_player);
+                one_player = new Player_user(3, "CCC", 7777);
+                dao.insert(one_player);
             });
+
+
         }
-        }
-    }*/
+
+        ;
+
+    };
 
 }

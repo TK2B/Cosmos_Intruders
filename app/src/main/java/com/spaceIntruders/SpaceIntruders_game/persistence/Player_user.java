@@ -1,6 +1,7 @@
 package com.spaceIntruders.SpaceIntruders_game.persistence;
 
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -8,6 +9,8 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "users")
 public class Player_user {
     @PrimaryKey
+    @NonNull
+    @ColumnInfo(name = "userID")
     private int uid;
 
     @ColumnInfo(name = "first_name")
@@ -16,11 +19,12 @@ public class Player_user {
     @ColumnInfo(name = "highScore")
     private  int highScore4db ;
 
-    public Player_user(int uid, String firstName4db, int highScore4db) {
+    public Player_user(@NonNull int uid, @NonNull String firstName4db, @NonNull int highScore4db) {
         this.uid = uid;
         this.firstName4db = firstName4db;
         this.highScore4db = highScore4db;
     }
+
 
     public int getHighScore4db() {
         return highScore4db;
