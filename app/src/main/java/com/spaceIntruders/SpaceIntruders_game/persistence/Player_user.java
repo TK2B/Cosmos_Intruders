@@ -38,7 +38,7 @@ public class Player_user {
         return uid;
     }
 
-   // TODO something like an override toString() (vor printing )
+               // TODO something like an override toString() (vor printing )
 
     }
 }
