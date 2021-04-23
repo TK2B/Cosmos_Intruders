@@ -147,7 +147,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
 
 
-        shootID = soundPool.load (getContext() , R.raw.shoot,0 );
+        shootID = soundPool.load ("src/main/res/raw/shoot.ogg",1 );
         Log.e("soothid", String.valueOf(shootID));
 
         //descriptor = assetManager.openFd("invaderexplode.ogg");
@@ -552,12 +552,9 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                         // Shots fired
                         if(bullet.shoot(playerShip.getX()+
                                 playerShip.getLength()/2,screenY,bullet.UP)){
-                            if (loaded) {
-                                soundPool.play(shootID, 1, 1, 0, 0, 1f);
-                                Log.e("Test", "Played sound");
-                            }
-                            //soundPool.play(shootID, 1, 1, 0, 0, 1);
-                            //Log.e ("soundplayed", "shoot");
+
+                            soundPool.play(shootID, 1, 1, 0, 0, 1);
+                            Log.e ("soundplayed", "shoot");
                         }
                     }
                     break;
