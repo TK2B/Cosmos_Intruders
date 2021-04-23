@@ -1,8 +1,6 @@
 package com.spaceIntruders.SpaceIntruders_game.viewmodel;
 
 import android.content.Context;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -10,7 +8,6 @@ import android.graphics.RectF;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.media.SoundPool.OnLoadCompleteListener;
 import android.os.Build;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -24,7 +21,6 @@ import com.spaceIntruders.SpaceIntruders_game.model.PlayerShip;
 import com.spaceIntruders.basicAplication.R;
 //import com.spaceIntruders.SpaceIntruders_game.model.Highscore;
 
-import java.io.IOException;
 
 public class SpaceInvadersView extends SurfaceView implements Runnable {
 
@@ -265,7 +261,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
     }
 
-        private int update() {
+        private void update() {
 
             // Did an invader bump into the side of the screen
             boolean bumped = false;
@@ -433,14 +429,14 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                             lives = 3;
                             score = 0;
                             prepareLevel();
-                            return score;
+
 
                         }
                     }
                 }
             }
 
-            return score;
+
         }
 
         private void draw () {
