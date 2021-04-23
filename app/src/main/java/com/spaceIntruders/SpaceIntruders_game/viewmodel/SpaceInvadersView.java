@@ -125,22 +125,26 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                     .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                     .build();
             soundPool = new SoundPool.Builder()
-                    .setMaxStreams(10)
+                    .setMaxStreams(32)
                     .setAudioAttributes(audioAttributes)
                     .build();
+            Log.e ("soundpool", "new");
+
         } else {
-            soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+            soundPool = new SoundPool(32, AudioManager.STREAM_MUSIC, 0);
+            Log.e ("soundpool", "old");
+
         }
 
+
+//in onCreate:
         soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             @Override
-            public void onLoadComplete(SoundPool soundPool, int mySoundId, int status) {
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
                 loaded = true;
-                //descriptor = assetManager.openFd("shoot.ogg");
-                // Load our fx in memory ready for use
-
             }
         });
+
 
 
         shootID = soundPool.load (getContext() , R.raw.shoot,0 );
@@ -239,11 +243,11 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 if ((startFrameTime - lastMenaceTime) > menaceInterval) {
                     if (uhOrOh) {
                         // Play Uh
-                        soundPool.play(uhID, 1, 1, 0, 0, 1);
+                        soundPool.play(uhID, 1, 1, 0, 2, 1);
 
                     } else {
                         // Play Oh
-                        soundPool.play(ohID, 1, 1, 0, 0, 1);
+                        soundPool.play(ohID, 1, 1, 0, 2, 1);
                     }
 
                     // Reset the last menace time
@@ -548,8 +552,12 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                         // Shots fired
                         if(bullet.shoot(playerShip.getX()+
                                 playerShip.getLength()/2,screenY,bullet.UP)){
-                            soundPool.play(shootID, 1, 1, 0, 0, 1);
-                            Log.e ("soundplayed", "shoot");
+                            if (loaded) {
+                                soundPool.play(shootID, 1, 1, 0, 0, 1f);
+                                Log.e("Test", "Played sound");
+                            }
+                            //soundPool.play(shootID, 1, 1, 0, 0, 1);
+                            //Log.e ("soundplayed", "shoot");
                         }
                     }
                     break;
