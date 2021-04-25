@@ -2,6 +2,7 @@ package com.spaceIntruders.SpaceIntruders_game.viewmodel;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -14,11 +15,16 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.EditText;
+
+import androidx.lifecycle.ViewModelProvider;
 
 import com.spaceIntruders.SpaceIntruders_game.model.Bullet;
 import com.spaceIntruders.SpaceIntruders_game.model.DefenceBrick;
 import com.spaceIntruders.SpaceIntruders_game.model.Invader;
 import com.spaceIntruders.SpaceIntruders_game.model.PlayerShip;
+import com.spaceIntruders.SpaceIntruders_game.persistence.Player_userViewHolder;
+import com.spaceIntruders.SpaceIntruders_game.view.Game;
 import com.spaceIntruders.SpaceIntruders_game.view.Highscore;
 import com.spaceIntruders.basicAplication.R;
 //import com.spaceIntruders.SpaceIntruders_game.model.Highscore;
@@ -96,16 +102,21 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
     private boolean uhOrOh;
     // When did we last play a menacing sound
     private long lastMenaceTime = System.currentTimeMillis();
-
+    //Color for playersShip
+    private int color;
+    private String name;
 
     // When the we initialize (call new()) on gameView
 // This special constructor method runs
-    public SpaceInvadersView(Context context, int x, int y) {  // TODO INFO place lvel int in contructor to make it harder (Level) and build some logic that make sure it starts with the level set - etc increase the level after succsess
+    public SpaceInvadersView(Context context, int x, int y, int color, String name) {  // TODO INFO place lvel int in contructor to make it harder (Level) and build some logic that make sure it starts with the level set - etc increase the level after succsess
 
         // The next line of code asks the
         // SurfaceView class to set up our object.
         // How kind.
         super(context);
+        // set Color
+        this.color = color;
+        this.name = name;
 
         // Make a globally available copy of the context so we can use it in another method
         this.context = context;
@@ -149,7 +160,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
 
 
-        shootID = soundPool.load (getContext() , R.raw.shoot,0 );
+        shootID = soundPool.load ("src/main/res/raw/shoot.ogg",1 );
         Log.e("soothid", String.valueOf(shootID));
 
         //descriptor = assetManager.openFd("invaderexplode.ogg");
@@ -181,7 +192,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         menaceInterval = 1000;  // TODO check if playable on mobile device
 
         // Make a new player space ship
-        playerShip = new PlayerShip(context, screenX, screenY);
+        playerShip = new PlayerShip(context, screenX, screenY, 2); //TODO Handover Color by STRING
 
 
         // Prepare the players bullet
@@ -429,10 +440,14 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                         // Is it game over?
                         if(lives == 0){
                             //TODO write method to write to database and go to higscore
+                            Intent gotoscore = new Intent(context, Highscore.class);
 
+                            gotoscore.putExtra("PlayersName", name);
+                            gotoscore.putExtra("Score", score);
+                            context.startActivity(gotoscore);
 
                             paused = true;
-                            lives = 3;
+                            lives = 5;
                             score = 0;
                             prepareLevel();
 
@@ -456,9 +471,10 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 canvas.drawColor(Color.argb(255, 5, 5, 5));
 
                 // Choose the brush color for drawing
-                //paint.setColor(Color.argb(255, 85, 0, 51)); // overwrite in line 451
+                //paint.setColor(Color.argb(255, 255, 0, 0)); // overwrite in line 451
 
                 // Now draw the player spaceship
+
                 canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 120, paint);   //TODO have a look at screenY it might be neccesarry to set lower/higher not sure because using an emulation of android in QEMU
 
                 // Draw the invaders
@@ -554,12 +570,9 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                         // Shots fired
                         if(bullet.shoot(playerShip.getX()+
                                 playerShip.getLength()/2,screenY,bullet.UP)){
-                            if (loaded) {
-                                soundPool.play(shootID, 1, 1, 0, 0, 1f);
-                                Log.e("Test", "Played sound");
-                            }
-                            //soundPool.play(shootID, 1, 1, 0, 0, 1);
-                            //Log.e ("soundplayed", "shoot");
+
+                            soundPool.play(shootID, 1, 1, 0, 0, 1);
+                            Log.e ("soundplayed", "shoot");
                         }
                     }
                     break;
@@ -577,5 +590,8 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
             return true;
         }
+
+
+
 
 }

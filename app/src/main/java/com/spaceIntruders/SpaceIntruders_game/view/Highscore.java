@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.spaceIntruders.SpaceIntruders_game.persistence.PlayerUserViewModel;
+import com.spaceIntruders.SpaceIntruders_game.persistence.Player_user;
+import com.spaceIntruders.SpaceIntruders_game.persistence.Player_userViewHolder;
 import com.spaceIntruders.SpaceIntruders_game.persistence.Player_user_list_adapter;
 import com.spaceIntruders.basicAplication.R;
 
@@ -21,6 +23,8 @@ public class Highscore extends AppCompatActivity {
 
     TextView score;
     private PlayerUserViewModel mPlayerUserViewModel;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,4 +59,20 @@ public class Highscore extends AppCompatActivity {
         Intent getToSelectScreen = new Intent(this, bevore_you_start.class);
         startActivity(getToSelectScreen);
     }
+
+    // Stuff for writing to the Database
+    Intent scoreIntent = getIntent();
+    private int highscoreinNumbers = scoreIntent.getIntExtra("Score", 0);
+    private String playersName = scoreIntent.getStringExtra("PlayersName");
+    Player_user toDatabaseUSer = new Player_user(highscoreinNumbers, playersName ,highscoreinNumbers);
+    PlayerUserViewModel MMmPlayerUserViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(PlayerUserViewModel.class);
+    //MMmPlayerUserViewModel.insert()
+
+
+
+
+
+
+
+
 }
