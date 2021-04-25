@@ -1,6 +1,7 @@
 package com.spaceIntruders.SpaceIntruders_game.viewmodel;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -18,6 +19,7 @@ import com.spaceIntruders.SpaceIntruders_game.model.Bullet;
 import com.spaceIntruders.SpaceIntruders_game.model.DefenceBrick;
 import com.spaceIntruders.SpaceIntruders_game.model.Invader;
 import com.spaceIntruders.SpaceIntruders_game.model.PlayerShip;
+import com.spaceIntruders.SpaceIntruders_game.view.Highscore;
 import com.spaceIntruders.basicAplication.R;
 //import com.spaceIntruders.SpaceIntruders_game.model.Highscore;
 

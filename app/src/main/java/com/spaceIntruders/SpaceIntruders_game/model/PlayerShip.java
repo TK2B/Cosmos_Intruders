@@ -59,10 +59,13 @@ public class PlayerShip {
         // TODO Make array of ships and extend Constructor to take Color (by number from calling class) This can be done later
         /*
         Drawable [] arrayWithShipShapes = {
+
                 R.drawable.dirtywhiteship, R.drawable.lightblueship, R.drawable.orangeship.......
         };
         */
-
+        Integer [] arrayWithShipShapes = {
+                R.drawable.blueship, R.drawable.dirtywhiteship, R.drawable.greenship, R.drawable.lightblueship, R.drawable.lightpurpleship, R.drawable.orangeship, R.drawable.pinkship, R.drawable.purpleship, R.drawable.redship, R.drawable.yellowship
+        };
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.dirtywhiteship);  //TODO Change to Vector shape implement method (or grab from screen that leads to this acitivity ) to get color please think about to declare the var on the right spot because of scope
 
 

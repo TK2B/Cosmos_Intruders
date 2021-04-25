@@ -30,4 +30,34 @@ public class bevore_you_start extends AppCompatActivity {
         gotonextActivity.putExtra("nameWeWantToSend", message);
         startActivity(gotonextActivity);
     }
+
+    public void clickRed(View view) {
+    }
+
+    public void clickOrange(View view) {
+    }
+
+    public void clickYellow(View view) {
+    }
+
+    public void clickGreen(View view) {
+    }
+
+    public void clickLightBlue(View view) {
+    }
+
+    public void clickBlue(View view) {
+    }
+
+    public void clickLightPurple(View view) {
+    }
+
+    public void clickPurple(View view) {
+    }
+
+    public void clickPink(View view) {
+    }
+
+    public void clickDirtyWhiteShip(View view) {
+    }
 }
