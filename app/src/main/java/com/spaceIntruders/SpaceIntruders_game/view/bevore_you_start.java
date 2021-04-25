@@ -65,6 +65,6 @@ public class bevore_you_start extends AppCompatActivity {
     public void clickPink(View view) {
     }
 
-    public void clickDirtyWhiteShip(View view) {
+    public void clickDirtyWhite(View view) {
     }
 }
