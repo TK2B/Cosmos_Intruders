@@ -35,4 +35,6 @@ public class Player_userViewHolder extends RecyclerView.ViewHolder {
             return new Player_userViewHolder(view);
         }
 
+
+
 }

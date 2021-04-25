@@ -23,7 +23,7 @@ public class PlayerUserViewModel extends AndroidViewModel {
         return mAllPlayer;
     }
 
-    void insert(Player_user one_player) {
+    public void insert(Player_user one_player) {
         mRepository.insert(one_player);
     }
 

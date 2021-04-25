@@ -30,10 +30,12 @@ public class Game extends Activity {
 
         // get intent from before_you_start
         Intent gameIntent = getIntent();
-        String message = gameIntent.getStringExtra("nameWeWantToSend");
+        String name = gameIntent.getStringExtra("nameWeWantToSend");
+        int color = gameIntent.getIntExtra("ShipColor", 1);
+
 
         // Good Luck toast message with player's name
-        Toast.makeText(this, "Good luck " + message + "!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Good luck " + name + "!", Toast.LENGTH_LONG).show();
 
         // Get a Display object to access screen details
         Display display = getWindowManager().getDefaultDisplay();
@@ -42,7 +44,7 @@ public class Game extends Activity {
         display.getSize(size);
 
         // Initialize gameView and set it as the view
-        spaceInvadersView = new SpaceInvadersView(this, size.x, size.y);
+        spaceInvadersView = new SpaceInvadersView(this, size.x, size.y, color, name); // TODO FIX SPACE I VIEW
         setContentView(spaceInvadersView);
     }
     // This method executes when the player starts the game
