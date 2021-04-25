@@ -11,11 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.spaceIntruders.SpaceIntruders_game.persistence.PlayerUserViewModel;
 import com.spaceIntruders.SpaceIntruders_game.persistence.Player_user;
 import com.spaceIntruders.SpaceIntruders_game.persistence.Player_userViewHolder;
 import com.spaceIntruders.SpaceIntruders_game.persistence.Player_user_list_adapter;
+import com.spaceIntruders.SpaceIntruders_game.viewmodel.SpaceInvadersView;
 import com.spaceIntruders.basicAplication.R;
 
 
@@ -65,8 +67,8 @@ public class Highscore extends AppCompatActivity {
     private int highscoreinNumbers = scoreIntent.getIntExtra("Score", 0);
     private String playersName = scoreIntent.getStringExtra("PlayersName");
     Player_user toDatabaseUSer = new Player_user(highscoreinNumbers, playersName ,highscoreinNumbers);
-    PlayerUserViewModel MMmPlayerUserViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(PlayerUserViewModel.class);
-    //MMmPlayerUserViewModel.insert()
+
+    //mPlayerUserViewModel.insert(toDatabaseUSer);
 
 
 

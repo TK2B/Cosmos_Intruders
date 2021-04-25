@@ -11,11 +11,15 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.EditText;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.lifecycle.ViewModelProvider;
 
@@ -31,6 +35,9 @@ import com.spaceIntruders.basicAplication.R;
 
 
 public class SpaceInvadersView extends SurfaceView implements Runnable {
+
+    public static final String  EXTRA_REPLYID = "com.spaceIntruders.viewmodel.wordlistsql.REPLYID";
+    public static final String EXTRA_REPLYNAME = "com.spaceIntruders.viewmodel.wordlistsql.REPLYNAME";
 
     Context context;
 
@@ -192,7 +199,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         menaceInterval = 1000;  // TODO check if playable on mobile device
 
         // Make a new player space ship
-        playerShip = new PlayerShip(context, screenX, screenY, 2); //TODO Handover Color by STRING
+        playerShip = new PlayerShip(context, screenX, screenY, color); //TODO Handover Color by STRING
 
 
         // Prepare the players bullet
@@ -445,6 +452,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                             gotoscore.putExtra("PlayersName", name);
                             gotoscore.putExtra("Score", score);
                             context.startActivity(gotoscore);
+
 
                             paused = true;
                             lives = 5;

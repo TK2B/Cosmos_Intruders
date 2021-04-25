@@ -36,42 +36,52 @@ public class bevore_you_start extends AppCompatActivity {
 
 
     public void clickRed(View view) {
-        color = 9;
+        color = 8;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 
     public void clickOrange(View view) {
-        color = 6;
+        color = 5;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 
     public void clickYellow(View view) {
-        color = 10;
+        color = 9;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 
     public void clickGreen(View view) {
-        color = 3;
+        color = 2;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 
     public void clickLightBlue(View view) {
-        color = 4;
+        color =3;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 
     public void clickBlue(View view) {
-        color = 1;
+        color = 0;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 
     public void clickLightPurple(View view) {
-        color = 5;
+        color = 4;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 
     public void clickPurple(View view) {
-        color = 8;
+        color = 7;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 
     public void clickPink(View view) {
-        color = 7;
+        color = 6;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 
     public void clickDirtyWhite(View view) {
-        color = 2;
+        color = 1;
+        Toast.makeText(this, "Great choice! Press 'Start Game' to play!", Toast.LENGTH_LONG).show();
     }
 }

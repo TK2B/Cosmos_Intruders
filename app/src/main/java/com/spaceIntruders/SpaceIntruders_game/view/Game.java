@@ -2,6 +2,7 @@ package com.spaceIntruders.SpaceIntruders_game.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -32,7 +33,7 @@ public class Game extends Activity {
         Intent gameIntent = getIntent();
         String name = gameIntent.getStringExtra("nameWeWantToSend");
         int color = gameIntent.getIntExtra("ShipColor", 1);
-
+        Log.e ("Shipcolor in Game.jave", String.valueOf(color));
 
         // Good Luck toast message with player's name
         Toast.makeText(this, "Good luck " + name + "!", Toast.LENGTH_LONG).show();
