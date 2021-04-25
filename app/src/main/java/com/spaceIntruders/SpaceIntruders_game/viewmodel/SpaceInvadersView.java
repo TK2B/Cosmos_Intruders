@@ -1,28 +1,26 @@
 package com.spaceIntruders.SpaceIntruders_game.viewmodel;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.os.Build;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 
 import com.spaceIntruders.SpaceIntruders_game.model.Bullet;
 import com.spaceIntruders.SpaceIntruders_game.model.DefenceBrick;
 import com.spaceIntruders.SpaceIntruders_game.model.Invader;
 import com.spaceIntruders.SpaceIntruders_game.model.PlayerShip;
+import com.spaceIntruders.basicAplication.R;
 //import com.spaceIntruders.SpaceIntruders_game.model.Highscore;
 
-import java.io.IOException;
 
 public class SpaceInvadersView extends SurfaceView implements Runnable {
 
@@ -82,6 +80,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
     private int damageShelterID = -1;
     private int uhID = -1;
     private int ohID = -1;
+    private boolean loaded;
 
     // The score
     int score = 0;
@@ -118,39 +117,55 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
         // This SoundPool is deprecated  // TODO there is a "better " newer way maybe you could read the refference ? Thats the way i knew (not shure on which android version it´´ running right  https://developer.android.com/reference/android/media/SoundPool.Builder
         // soundPool= new SoundPool.Builder(10, 0, STREAM_MUSIC);
-        soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
 
-        try {
-            // Create objects of the 2 required classes
-            AssetManager assetManager = context.getAssets();
-            AssetFileDescriptor descriptor;
 
-            // Load our fx in memory ready for use
-            descriptor = assetManager.openFd("shoot.ogg");
-            shootID = soundPool.load(descriptor, 0);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build();
+            soundPool = new SoundPool.Builder()
+                    .setMaxStreams(32)
+                    .setAudioAttributes(audioAttributes)
+                    .build();
+            Log.e ("soundpool", "new");
 
-            descriptor = assetManager.openFd("invaderexplode.ogg");
-            invaderExplodeID = soundPool.load(descriptor, 0);
+        } else {
+            soundPool = new SoundPool(32, AudioManager.STREAM_MUSIC, 0);
+            Log.e ("soundpool", "old");
 
-            descriptor = assetManager.openFd("damageshelter.ogg");
-            damageShelterID = soundPool.load(descriptor, 0);
-
-            descriptor = assetManager.openFd("playerexplode.ogg");
-            playerExplodeID = soundPool.load(descriptor, 0);
-
-            descriptor = assetManager.openFd("damageshelter.ogg");
-            damageShelterID = soundPool.load(descriptor, 0);
-
-            descriptor = assetManager.openFd("uh.ogg");
-            uhID = soundPool.load(descriptor, 0);
-
-            descriptor = assetManager.openFd("oh.ogg");
-            ohID = soundPool.load(descriptor, 0);
-
-        } catch (IOException e) {
-            // Print an error message to the console
-            Log.e("error", "failed to load sound files");
         }
+
+
+//in onCreate:
+        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                loaded = true;
+            }
+        });
+
+
+
+        shootID = soundPool.load (getContext() , R.raw.shoot,0 );
+        Log.e("soothid", String.valueOf(shootID));
+
+        //descriptor = assetManager.openFd("invaderexplode.ogg");
+        invaderExplodeID = soundPool.load(context , R.raw.invaderexplode, 0);
+
+        //descriptor = assetManager.openFd("damageshelter.ogg");
+        damageShelterID = soundPool.load(context , R.raw.damageshelter, 0);
+
+        //descriptor = assetManager.openFd("playerexplode.ogg");
+        playerExplodeID = soundPool.load(context , R.raw.playerexplode, 0);
+
+        //descriptor = assetManager.openFd("uh.ogg");
+        uhID = soundPool.load(context , R.raw.uh , 0);
+
+        //descriptor = assetManager.openFd("oh.ogg");
+        ohID = soundPool.load(context , R.raw.oh, 0);
+
+
 
         prepareLevel();
     }
@@ -228,11 +243,11 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 if ((startFrameTime - lastMenaceTime) > menaceInterval) {
                     if (uhOrOh) {
                         // Play Uh
-                        soundPool.play(uhID, 1, 1, 0, 0, 1);
+                        soundPool.play(uhID, 1, 1, 0, 2, 1);
 
                     } else {
                         // Play Oh
-                        soundPool.play(ohID, 1, 1, 0, 0, 1);
+                        soundPool.play(ohID, 1, 1, 0, 2, 1);
                     }
 
                     // Reset the last menace time
@@ -411,15 +426,20 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
                         // Is it game over?
                         if(lives == 0){
+                            //TODO write method to write to database and go to higscore
+
+
                             paused = true;
                             lives = 3;
                             score = 0;
                             prepareLevel();
 
+
                         }
                     }
                 }
             }
+
 
         }
 
@@ -532,7 +552,12 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                         // Shots fired
                         if(bullet.shoot(playerShip.getX()+
                                 playerShip.getLength()/2,screenY,bullet.UP)){
-                            soundPool.play(shootID, 1, 1, 0, 0, 1);
+                            if (loaded) {
+                                soundPool.play(shootID, 1, 1, 0, 0, 1f);
+                                Log.e("Test", "Played sound");
+                            }
+                            //soundPool.play(shootID, 1, 1, 0, 0, 1);
+                            //Log.e ("soundplayed", "shoot");
                         }
                     }
                     break;
