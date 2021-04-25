@@ -66,7 +66,7 @@ public class Highscore extends AppCompatActivity {
     Intent scoreIntent = getIntent();
     private int highscoreinNumbers = scoreIntent.getIntExtra("Score", 0);
     private String playersName = scoreIntent.getStringExtra("PlayersName");
-    Player_user toDatabaseUSer = new Player_user(highscoreinNumbers, playersName ,highscoreinNumbers);
+    //Player_user toDatabaseUSer = new Player_user(highscoreinNumbers, playersName ,highscoreinNumbers);
 
     //mPlayerUserViewModel.insert(toDatabaseUSer);
 
