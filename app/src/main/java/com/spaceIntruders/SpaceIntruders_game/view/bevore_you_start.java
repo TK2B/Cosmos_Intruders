@@ -34,37 +34,44 @@ public class bevore_you_start extends AppCompatActivity {
         startActivity(gotonextActivity);
     }
 
-    public void clickred(View view) {
-        color = 5;
-    }
 
     public void clickRed(View view) {
+        color = 9;
     }
 
     public void clickOrange(View view) {
+        color = 6;
     }
 
     public void clickYellow(View view) {
+        color = 10;
     }
 
     public void clickGreen(View view) {
+        color = 3;
     }
 
     public void clickLightBlue(View view) {
+        color = 4;
     }
 
     public void clickBlue(View view) {
+        color = 1;
     }
 
     public void clickLightPurple(View view) {
+        color = 5;
     }
 
     public void clickPurple(View view) {
+        color = 8;
     }
 
     public void clickPink(View view) {
+        color = 7;
     }
 
     public void clickDirtyWhite(View view) {
+        color = 2;
     }
 }
