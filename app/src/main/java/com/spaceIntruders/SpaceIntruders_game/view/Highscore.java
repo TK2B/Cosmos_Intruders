@@ -27,7 +27,7 @@ public class Highscore extends AppCompatActivity {
     TextView score;
     private PlayerUserViewModel mPlayerUserViewModel;
     private int highscore = 0;
-    private String winnername;
+    private String winnername = "default";
 
 
     @Override
@@ -60,10 +60,11 @@ public class Highscore extends AppCompatActivity {
 
         Intent scoreIntent = getIntent();
         highscore = scoreIntent.getIntExtra("Score", 0);
-        winnername = scoreIntent.getStringExtra("PlayersName");
-        Log.e ("Score" , String.valueOf(highscore));
-        Log.e ("PlayersName" , winnername);
+
         if (highscore != 0) {
+            winnername = scoreIntent.getStringExtra("PlayersName");
+            Log.e ("Score" , String.valueOf(highscore));
+            Log.e ("PlayersName" , winnername);
             Player_user toWriteUser = new Player_user(highscore, winnername, highscore);
             mPlayerUserViewModel.insert(toWriteUser);
         }
