@@ -165,23 +165,23 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         });
 
 
-        shootID = soundPool.load("src/main/res/raw/shoot.ogg", 1);
+        shootID = soundPool.load(context, R.raw.shoot, 1);
         Log.e("soothid", String.valueOf(shootID));
 
         //descriptor = assetManager.openFd("invaderexplode.ogg");
-        invaderExplodeID = soundPool.load(context, R.raw.invaderexplode, 0);
+        invaderExplodeID = soundPool.load(context, R.raw.invaderexplode, 1);
 
         //descriptor = assetManager.openFd("damageshelter.ogg");
-        damageShelterID = soundPool.load(context, R.raw.damageshelter, 0);
+        damageShelterID = soundPool.load(context, R.raw.damageshelter, 1);
 
         //descriptor = assetManager.openFd("playerexplode.ogg");
-        playerExplodeID = soundPool.load(context, R.raw.playerexplode, 0);
+        playerExplodeID = soundPool.load(context, R.raw.playerexplode, 1);
 
         //descriptor = assetManager.openFd("uh.ogg");
-        uhID = soundPool.load(context, R.raw.uh, 0);
+        uhID = soundPool.load(context, R.raw.uh, 1);
 
         //descriptor = assetManager.openFd("oh.ogg");
-        ohID = soundPool.load(context, R.raw.oh, 0);
+        ohID = soundPool.load(context, R.raw.oh, 1);
 
 
         prepareLevel();
@@ -383,7 +383,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                 if (invaders[i].getVisibility()) {
                     if (RectF.intersects(bullet.getRect(), invaders[i].getRect())) {
                         invaders[i].setInvisible();
-                        soundPool.play(invaderExplodeID, 1, 1, 0, 0, 1);
+                        soundPool.play(invaderExplodeID, 1, 1, 0, 1, 1);
                         bullet.setInactive();
                         score = score + 10;
 
