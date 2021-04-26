@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,13 +26,14 @@ public class Highscore extends AppCompatActivity {
 
     TextView score;
     private PlayerUserViewModel mPlayerUserViewModel;
-
+    private int highscore = 0;
+    private String winnername;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_highscore);
+            setContentView(R.layout.activity_highscore);
 
         Intent highScoresIntent = getIntent();
         String message = highScoresIntent.getStringExtra("nameWeWantToSend");
@@ -55,6 +57,18 @@ public class Highscore extends AppCompatActivity {
             // Update the cached copy of the words in the adapter.
             adapter.submitList(player_users);
         });
+
+        Intent scoreIntent = getIntent();
+        highscore = scoreIntent.getIntExtra("Score", 0);
+        winnername = scoreIntent.getStringExtra("PlayersName");
+        Log.e ("Score" , String.valueOf(highscore));
+        Log.e ("PlayersName" , winnername);
+        if (highscore != 0) {
+            Player_user toWriteUser = new Player_user(highscore, winnername, highscore);
+            mPlayerUserViewModel.insert(toWriteUser);
+        }
+
+
     }
 
     public void playAgain(View view) {
@@ -63,10 +77,6 @@ public class Highscore extends AppCompatActivity {
     }
 
     // Stuff for writing to the Database
-    // Intent scoreIntent = getIntent();
-    // private int highscoreinNumbers = scoreIntent.getIntExtra("Score", 0);
-    //private String playersName = scoreIntent.getStringExtra("PlayersName");
-    //Player_user toDatabaseUSer = new Player_user(highscoreinNumbers, playersName ,highscoreinNumbers);
 
     //mPlayerUserViewModel.insert(toDatabaseUSer);
 

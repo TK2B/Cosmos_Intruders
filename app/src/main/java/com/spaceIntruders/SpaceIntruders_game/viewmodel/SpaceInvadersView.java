@@ -2,7 +2,6 @@ package com.spaceIntruders.SpaceIntruders_game.viewmodel;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,25 +10,15 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.widget.EditText;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.spaceIntruders.SpaceIntruders_game.model.Bullet;
 import com.spaceIntruders.SpaceIntruders_game.model.DefenceBrick;
 import com.spaceIntruders.SpaceIntruders_game.model.Invader;
 import com.spaceIntruders.SpaceIntruders_game.model.PlayerShip;
-import com.spaceIntruders.SpaceIntruders_game.persistence.Player_userViewHolder;
-import com.spaceIntruders.SpaceIntruders_game.view.Game;
 import com.spaceIntruders.SpaceIntruders_game.view.Highscore;
 import com.spaceIntruders.basicAplication.R;
 //import com.spaceIntruders.SpaceIntruders_game.model.Highscore;
@@ -445,19 +434,20 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                             Writetodatabase transfer = new Writetodatabase();
                             transfer.goToDataHighscore(name, score);
                             */
-                        Intent gotoscore = new Intent(context, Highscore.class);
+                        Intent gotoscore = new Intent(context,Highscore.class);
 
 
                         gotoscore.putExtra("PlayersName", name);
                         gotoscore.putExtra("Score", score);
                         context.startActivity(gotoscore);
 
-
+                        /*
                         paused = true;
+
                         lives = 5;
                         score = 0;
                         prepareLevel();
-
+                        */
 
                     }
                 }
@@ -598,34 +588,11 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
     }
 }
 
-/*
-    public class Writetodatabase extends AppCompatActivity{
-        String name;
-        int score;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
 
 
 
-        }
-
-        public void goToDataHighscore(String name, int score){
-            Intent gotoscore = new Intent(this, Highscore.class);
 
 
-            gotoscore.putExtra("PlayersName", name);
-            gotoscore.putExtra("Score", score);
-            this.startActivity(gotoscore);
-
-        }
-
-
-
-    }}
-
-
-*/
 
 
 
