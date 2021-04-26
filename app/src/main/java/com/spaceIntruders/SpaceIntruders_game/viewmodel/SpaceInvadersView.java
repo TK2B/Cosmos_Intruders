@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.spaceIntruders.SpaceIntruders_game.model.Bullet;
@@ -36,8 +37,6 @@ import com.spaceIntruders.basicAplication.R;
 
 public class SpaceInvadersView extends SurfaceView implements Runnable {
 
-    public static final String  EXTRA_REPLYID = "com.spaceIntruders.viewmodel.wordlistsql.REPLYID";
-    public static final String EXTRA_REPLYNAME = "com.spaceIntruders.viewmodel.wordlistsql.REPLYNAME";
 
     Context context;
 
@@ -148,11 +147,11 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
                     .setMaxStreams(32)
                     .setAudioAttributes(audioAttributes)
                     .build();
-            Log.e ("soundpool", "new");
+            Log.e("soundpool", "new");
 
         } else {
             soundPool = new SoundPool(32, AudioManager.STREAM_MUSIC, 0);
-            Log.e ("soundpool", "old");
+            Log.e("soundpool", "old");
 
         }
 
@@ -166,25 +165,23 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         });
 
 
-
-        shootID = soundPool.load ("src/main/res/raw/shoot.ogg",1 );
+        shootID = soundPool.load("src/main/res/raw/shoot.ogg", 1);
         Log.e("soothid", String.valueOf(shootID));
 
         //descriptor = assetManager.openFd("invaderexplode.ogg");
-        invaderExplodeID = soundPool.load(context , R.raw.invaderexplode, 0);
+        invaderExplodeID = soundPool.load(context, R.raw.invaderexplode, 0);
 
         //descriptor = assetManager.openFd("damageshelter.ogg");
-        damageShelterID = soundPool.load(context , R.raw.damageshelter, 0);
+        damageShelterID = soundPool.load(context, R.raw.damageshelter, 0);
 
         //descriptor = assetManager.openFd("playerexplode.ogg");
-        playerExplodeID = soundPool.load(context , R.raw.playerexplode, 0);
+        playerExplodeID = soundPool.load(context, R.raw.playerexplode, 0);
 
         //descriptor = assetManager.openFd("uh.ogg");
-        uhID = soundPool.load(context , R.raw.uh , 0);
+        uhID = soundPool.load(context, R.raw.uh, 0);
 
         //descriptor = assetManager.openFd("oh.ogg");
-        ohID = soundPool.load(context , R.raw.oh, 0);
-
+        ohID = soundPool.load(context, R.raw.oh, 0);
 
 
         prepareLevel();
@@ -206,24 +203,24 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         bullet = new Bullet(screenY);
 
         // Initialize the invadersBullets array
-        for(int i = 0; i < invadersBullets.length; i++){
+        for (int i = 0; i < invadersBullets.length; i++) {
             invadersBullets[i] = new Bullet(screenY);
         }
 
 
         // Build an army of invaders
         numInvaders = 0;
-        for(int column = 0; column < 6; column ++ ){
-            for(int row = 0; row < 3; row ++ ){   //TODO INFO changed from 5 to 3 - have a look at this line for more levels or setting page
+        for (int column = 0; column < 6; column++) {
+            for (int row = 0; row < 3; row++) {   //TODO INFO changed from 5 to 3 - have a look at this line for more levels or setting page
                 invaders[numInvaders] = new Invader(context, row, column, screenX, screenY);
-                numInvaders ++;
+                numInvaders++;
             }
         }
 
         // Build the shelters
         numBricks = 0;
-        for(int shelterNumber = 0; shelterNumber < 4; shelterNumber++){
-            for(int column = 0; column < 10; column ++ ) {
+        for (int shelterNumber = 0; shelterNumber < 4; shelterNumber++) {
+            for (int column = 0; column < 10; column++) {
                 for (int row = 0; row < 5; row++) {
                     bricks[numBricks] = new DefenceBrick(row, column, shelterNumber, screenX, screenY);
                     numBricks++;
@@ -259,7 +256,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
 
             // We will do something new here towards the end of the project
             // Play a sound based on the menace level
-            if(!paused) {
+            if (!paused) {
                 if ((startFrameTime - lastMenaceTime) > menaceInterval) {
                     if (uhOrOh) {
                         // Play Uh
@@ -280,326 +277,356 @@ public class SpaceInvadersView extends SurfaceView implements Runnable {
         }
 
 
-
-
-
     }
 
-        private void update() {
+    private void update() {
 
-            // Did an invader bump into the side of the screen
-            boolean bumped = false;
+        // Did an invader bump into the side of the screen
+        boolean bumped = false;
 
-            // Has the player lost
-            boolean lost = false;
+        // Has the player lost
+        boolean lost = false;
 
-            // Move the player's ship
-            playerShip.update(fps);
+        // Move the player's ship
+        playerShip.update(fps);
 
-            // Update all the invaders if visible
-            for(int i = 0; i < numInvaders; i++){
+        // Update all the invaders if visible
+        for (int i = 0; i < numInvaders; i++) {
 
-                if(invaders[i].getVisibility()) {
-                    // Move the next invader
-                    invaders[i].update(fps);
+            if (invaders[i].getVisibility()) {
+                // Move the next invader
+                invaders[i].update(fps);
 
-                    // Does he want to take a shot?
-                    if(invaders[i].takeAim(playerShip.getX(),
-                            playerShip.getLength())){
+                // Does he want to take a shot?
+                if (invaders[i].takeAim(playerShip.getX(),
+                        playerShip.getLength())) {
 
-                        // If so try and spawn a bullet
-                        if(invadersBullets[nextBullet].shoot(invaders[i].getX()
-                                        + invaders[i].getLength() / 2,
-                                invaders[i].getY(), bullet.DOWN)) {
+                    // If so try and spawn a bullet
+                    if (invadersBullets[nextBullet].shoot(invaders[i].getX()
+                                    + invaders[i].getLength() / 2,
+                            invaders[i].getY(), bullet.DOWN)) {
 
-                            // Shot fired
-                            // Prepare for the next shot
-                            nextBullet++;
+                        // Shot fired
+                        // Prepare for the next shot
+                        nextBullet++;
 
-                            // Loop back to the first one if we have reached the last
-                            if (nextBullet == maxInvaderBullets) {
-                                // This stops the firing of another bullet until one completes its journey
-                                // Because if bullet 0 is still active shoot returns false.
-                                nextBullet = 0;
-                            }
-                        }
-                    }
-
-                    // If that move caused them to bump the screen change bumped to true
-                    if (invaders[i].getX() > screenX - invaders[i].getLength()
-                            || invaders[i].getX() < 0){
-
-                        bumped = true;
-
-                    }
-                }
-
-            }
-
-            // Update all the invaders bullets if active
-            for(int i = 0; i < invadersBullets.length; i++){
-                if(invadersBullets[i].getStatus()) {
-                    invadersBullets[i].update(fps);
-                }
-            }
-
-            // Did an invader bump into the edge of the screen
-            if(bumped){
-
-                // Move all the invaders down and change direction
-                for(int i = 0; i < numInvaders; i++){
-                    invaders[i].dropDownAndReverse();
-                    // Have the invaders landed
-                    if(invaders[i].getY() > screenY - screenY / 10){
-                        lost = true;
-                    }
-                }
-
-                // Increase the menace level
-                // By making the sounds more frequent
-                menaceInterval = menaceInterval - 80;
-            }
-
-
-            if (lost) {
-                prepareLevel();
-            }
-
-            // Update the players bullet
-            if(bullet.getStatus()){
-                bullet.update(fps);
-            }
-
-
-            // Has the player's bullet hit the top of the screen
-            if(bullet.getImpactPointY() < 0){
-                bullet.setInactive();
-            }
-
-            // Has an invaders bullet hit the bottom of the screen
-            for(int i = 0; i < invadersBullets.length; i++){
-                if(invadersBullets[i].getImpactPointY() > screenY){
-                    invadersBullets[i].setInactive();
-                }
-            }
-
-            // Has the player's bullet hit an invader
-            if(bullet.getStatus()) {
-                for (int i = 0; i < numInvaders; i++) {
-                    if (invaders[i].getVisibility()) {
-                        if (RectF.intersects(bullet.getRect(), invaders[i].getRect())) {
-                            invaders[i].setInvisible();
-                            soundPool.play(invaderExplodeID, 1, 1, 0, 0, 1);
-                            bullet.setInactive();
-                            score = score + 10;
-
-                            // Has the player won
-                            if(score == numInvaders * 10){
-                                paused = true;
-                                score = 0;
-                                lives = 5;
-                                prepareLevel();
-                            }
-                        }
-                    }
-                }
-            }
-
-            // Has an alien bullet hit a shelter brick
-            for(int i = 0; i < invadersBullets.length; i++){
-                if(invadersBullets[i].getStatus()){
-                    for(int j = 0; j < numBricks; j++){
-                        if(bricks[j].getVisibility()){
-                            if(RectF.intersects(invadersBullets[i].getRect(), bricks[j].getRect())){
-                                // A collision has occurred
-                                invadersBullets[i].setInactive();
-                                bricks[j].setInvisible();
-                                soundPool.play(damageShelterID, 1, 1, 0, 0, 1);
-                            }
+                        // Loop back to the first one if we have reached the last
+                        if (nextBullet == maxInvaderBullets) {
+                            // This stops the firing of another bullet until one completes its journey
+                            // Because if bullet 0 is still active shoot returns false.
+                            nextBullet = 0;
                         }
                     }
                 }
 
+                // If that move caused them to bump the screen change bumped to true
+                if (invaders[i].getX() > screenX - invaders[i].getLength()
+                        || invaders[i].getX() < 0) {
+
+                    bumped = true;
+
+                }
             }
 
-            // Has a player bullet hit a shelter brick
-            if(bullet.getStatus()){
-                for(int i = 0; i < numBricks; i++){
-                    if(bricks[i].getVisibility()){
-                        if(RectF.intersects(bullet.getRect(), bricks[i].getRect())){
+        }
+
+        // Update all the invaders bullets if active
+        for (int i = 0; i < invadersBullets.length; i++) {
+            if (invadersBullets[i].getStatus()) {
+                invadersBullets[i].update(fps);
+            }
+        }
+
+        // Did an invader bump into the edge of the screen
+        if (bumped) {
+
+            // Move all the invaders down and change direction
+            for (int i = 0; i < numInvaders; i++) {
+                invaders[i].dropDownAndReverse();
+                // Have the invaders landed
+                if (invaders[i].getY() > screenY - screenY / 10) {
+                    lost = true;
+                }
+            }
+
+            // Increase the menace level
+            // By making the sounds more frequent
+            menaceInterval = menaceInterval - 80;
+        }
+
+
+        if (lost) {
+            prepareLevel();
+        }
+
+        // Update the players bullet
+        if (bullet.getStatus()) {
+            bullet.update(fps);
+        }
+
+
+        // Has the player's bullet hit the top of the screen
+        if (bullet.getImpactPointY() < 0) {
+            bullet.setInactive();
+        }
+
+        // Has an invaders bullet hit the bottom of the screen
+        for (int i = 0; i < invadersBullets.length; i++) {
+            if (invadersBullets[i].getImpactPointY() > screenY) {
+                invadersBullets[i].setInactive();
+            }
+        }
+
+        // Has the player's bullet hit an invader
+        if (bullet.getStatus()) {
+            for (int i = 0; i < numInvaders; i++) {
+                if (invaders[i].getVisibility()) {
+                    if (RectF.intersects(bullet.getRect(), invaders[i].getRect())) {
+                        invaders[i].setInvisible();
+                        soundPool.play(invaderExplodeID, 1, 1, 0, 0, 1);
+                        bullet.setInactive();
+                        score = score + 10;
+
+                        // Has the player won
+                        if (score == numInvaders * 10) {
+                            paused = true;
+                            score = 0;
+                            lives = 5;
+                            prepareLevel();
+                        }
+                    }
+                }
+            }
+        }
+
+        // Has an alien bullet hit a shelter brick
+        for (int i = 0; i < invadersBullets.length; i++) {
+            if (invadersBullets[i].getStatus()) {
+                for (int j = 0; j < numBricks; j++) {
+                    if (bricks[j].getVisibility()) {
+                        if (RectF.intersects(invadersBullets[i].getRect(), bricks[j].getRect())) {
                             // A collision has occurred
-                            bullet.setInactive();
-                            bricks[i].setInvisible();
+                            invadersBullets[i].setInactive();
+                            bricks[j].setInvisible();
                             soundPool.play(damageShelterID, 1, 1, 0, 0, 1);
                         }
                     }
                 }
             }
 
-            // Has an invader bullet hit the player ship
-            for(int i = 0; i < invadersBullets.length; i++){
-                if(invadersBullets[i].getStatus()){
-                    if(RectF.intersects(playerShip.getRect(), invadersBullets[i].getRect())){
-                        invadersBullets[i].setInactive();
-                        lives --;
-                        soundPool.play(playerExplodeID, 1, 1, 0, 0, 1);
+        }
 
-                        // Is it game over?
-                        if(lives == 0){
-                            //TODO write method to write to database and go to higscore
-                            Intent gotoscore = new Intent(context, Highscore.class);
-
-                            gotoscore.putExtra("PlayersName", name);
-                            gotoscore.putExtra("Score", score);
-                            context.startActivity(gotoscore);
-
-
-                            paused = true;
-                            lives = 5;
-                            score = 0;
-                            prepareLevel();
-
-
-                        }
+        // Has a player bullet hit a shelter brick
+        if (bullet.getStatus()) {
+            for (int i = 0; i < numBricks; i++) {
+                if (bricks[i].getVisibility()) {
+                    if (RectF.intersects(bullet.getRect(), bricks[i].getRect())) {
+                        // A collision has occurred
+                        bullet.setInactive();
+                        bricks[i].setInvisible();
+                        soundPool.play(damageShelterID, 1, 1, 0, 0, 1);
                     }
                 }
             }
-
-
         }
 
-        private void draw () {
+        // Has an invader bullet hit the player ship
+        for (int i = 0; i < invadersBullets.length; i++) {
+            if (invadersBullets[i].getStatus()) {
+                if (RectF.intersects(playerShip.getRect(), invadersBullets[i].getRect())) {
+                    invadersBullets[i].setInactive();
+                    lives--;
+                    soundPool.play(playerExplodeID, 1, 1, 0, 0, 1);
+
+                    // Is it game over?
+                    if (lives == 0) {
+                        //TODO write method to write to database and go to higscore
+                           /*
+                            Writetodatabase transfer = new Writetodatabase();
+                            transfer.goToDataHighscore(name, score);
+                            */
+                        Intent gotoscore = new Intent(context, Highscore.class);
+
+
+                        gotoscore.putExtra("PlayersName", name);
+                        gotoscore.putExtra("Score", score);
+                        context.startActivity(gotoscore);
+
+
+                        paused = true;
+                        lives = 5;
+                        score = 0;
+                        prepareLevel();
+
+
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    private void draw() {
         //TODO set colors if you want to use bitmaps you need to apply colorfilters https://stackoverflow.com/questions/5699810/how-to-change-bitmap-image-color-in-android
-            // Make sure our drawing surface is valid or we crash
-            if (ourHolder.getSurface().isValid()) {
-                // Lock the canvas ready to draw
-                canvas = ourHolder.lockCanvas();
+        // Make sure our drawing surface is valid or we crash
+        if (ourHolder.getSurface().isValid()) {
+            // Lock the canvas ready to draw
+            canvas = ourHolder.lockCanvas();
 
-                // Draw the background color
-                canvas.drawColor(Color.argb(255, 5, 5, 5));
+            // Draw the background color
+            canvas.drawColor(Color.argb(255, 5, 5, 5));
 
-                // Choose the brush color for drawing
-                //paint.setColor(Color.argb(255, 255, 0, 0)); // overwrite in line 451
+            // Choose the brush color for drawing
+            //paint.setColor(Color.argb(255, 255, 0, 0)); // overwrite in line 451
 
-                // Now draw the player spaceship
+            // Now draw the player spaceship
 
-                canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 120, paint);   //TODO have a look at screenY it might be neccesarry to set lower/higher not sure because using an emulation of android in QEMU
+            canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 120, paint);   //TODO have a look at screenY it might be neccesarry to set lower/higher not sure because using an emulation of android in QEMU
 
-                // Draw the invaders
+            // Draw the invaders
 
 
-                for(int i = 0; i < numInvaders; i++){
-                    if(invaders[i].getVisibility()) {
-                        if(uhOrOh) {
-                            canvas.drawBitmap(invaders[i].getBitmap(), invaders[i].getX(), invaders[i].getY(), paint);
-                        }
+            for (int i = 0; i < numInvaders; i++) {
+                if (invaders[i].getVisibility()) {
+                    if (uhOrOh) {
+                        canvas.drawBitmap(invaders[i].getBitmap(), invaders[i].getX(), invaders[i].getY(), paint);
                     }
                 }
-
-                // Draw the bricks if visible
-                paint.setColor(Color.argb(255, 0, 0, 91));
-                for(int i = 0; i < numBricks; i++){
-                    if(bricks[i].getVisibility()) {
-                        canvas.drawRect(bricks[i].getRect(), paint);
-                    }
-                }
-
-                // Draw the players bullet if active
-                paint.setColor(Color.argb(255, 232, 222, 0));
-                if(bullet.getStatus()){
-                    canvas.drawRect(bullet.getRect(), paint);
-                }
-
-
-
-                // Draw the invaders bullets if active
-                paint.setColor(Color.argb(255, 0, 232, 232));
-                // Update all the invader's bullets if active
-                for(int i = 0; i < invadersBullets.length; i++){
-                    if(invadersBullets[i].getStatus()) {
-                        canvas.drawRect(invadersBullets[i].getRect(), paint);
-                    }
-                }
-
-                // Draw the score and remaining lives
-                // Change the brush color
-                //TODO you may change it to a Textview i choose to draw it for consitency of design
-                paint.setColor(Color.argb(255, 216, 0, 131));
-                paint.setTextSize(40);
-                canvas.drawText("Score: " + score + "   Lives: " + lives, 10, 50, paint);
-
-                // Draw everything to the screen
-                ourHolder.unlockCanvasAndPost(canvas);
-            }
-        }
-
-        // If SpaceInvadersActivity is paused/stopped
-        // shutdown our thread.
-        public void pause () {
-            playing = false;
-            try {
-                gameThread.join();
-            } catch (InterruptedException e) {
-                Log.e("Error:", "joining thread");
             }
 
-        }
-
-        // If SpaceInvadersActivity is started then
-        // start our thread.
-        public void resume () {
-            playing = true;
-            gameThread = new Thread(this);
-            gameThread.start();
-        }
-
-        // The SurfaceView class implements onTouchListener
-        // So we can override this method and detect screen touches.
-        @Override
-        public boolean onTouchEvent(MotionEvent motionEvent) {
-
-            switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
-
-                // Player has touched the screen
-                case MotionEvent.ACTION_DOWN:
-
-                    paused = false;
-
-                    if(motionEvent.getY() > screenY - screenY / 8) {
-                        if (motionEvent.getX() > screenX / 2) {
-                            playerShip.setMovementState(playerShip.RIGHT);
-                        } else {
-                            playerShip.setMovementState(playerShip.LEFT);
-                        }
-
-                    }
-
-                    if(motionEvent.getY() < screenY - screenY / 8) {   // TODO Please check out if that is a good idea otherwise we have to add a fire button
-                        // Shots fired
-                        if(bullet.shoot(playerShip.getX()+
-                                playerShip.getLength()/2,screenY,bullet.UP)){
-
-                            soundPool.play(shootID, 1, 1, 0, 0, 1);
-                            Log.e ("soundplayed", "shoot");
-                        }
-                    }
-                    break;
-
-                // Player has removed finger from screen
-                case MotionEvent.ACTION_UP:
-
-                    if(motionEvent.getY() > screenY - screenY / 10) {
-                        playerShip.setMovementState(playerShip.STOPPED);
-                    }
-
-                    break;
-
+            // Draw the bricks if visible
+            paint.setColor(Color.argb(255, 0, 0, 91));
+            for (int i = 0; i < numBricks; i++) {
+                if (bricks[i].getVisibility()) {
+                    canvas.drawRect(bricks[i].getRect(), paint);
+                }
             }
 
-            return true;
+            // Draw the players bullet if active
+            paint.setColor(Color.argb(255, 232, 222, 0));
+            if (bullet.getStatus()) {
+                canvas.drawRect(bullet.getRect(), paint);
+            }
+
+
+            // Draw the invaders bullets if active
+            paint.setColor(Color.argb(255, 0, 232, 232));
+            // Update all the invader's bullets if active
+            for (int i = 0; i < invadersBullets.length; i++) {
+                if (invadersBullets[i].getStatus()) {
+                    canvas.drawRect(invadersBullets[i].getRect(), paint);
+                }
+            }
+
+            // Draw the score and remaining lives
+            // Change the brush color
+            //TODO you may change it to a Textview i choose to draw it for consitency of design
+            paint.setColor(Color.argb(255, 216, 0, 131));
+            paint.setTextSize(40);
+            canvas.drawText("Score: " + score + "   Lives: " + lives, 10, 50, paint);
+
+            // Draw everything to the screen
+            ourHolder.unlockCanvasAndPost(canvas);
+        }
+    }
+
+    // If SpaceInvadersActivity is paused/stopped
+    // shutdown our thread.
+    public void pause() {
+        playing = false;
+        try {
+            gameThread.join();
+        } catch (InterruptedException e) {
+            Log.e("Error:", "joining thread");
         }
 
+    }
 
+    // If SpaceInvadersActivity is started then
+    // start our thread.
+    public void resume() {
+        playing = true;
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
 
+    // The SurfaceView class implements onTouchListener
+    // So we can override this method and detect screen touches.
+    @Override
+    public boolean onTouchEvent(MotionEvent motionEvent) {
 
+        switch (motionEvent.getAction() & MotionEvent.ACTION_MASK) {
+
+            // Player has touched the screen
+            case MotionEvent.ACTION_DOWN:
+
+                paused = false;
+
+                if (motionEvent.getY() > screenY - screenY / 8) {
+                    if (motionEvent.getX() > screenX / 2) {
+                        playerShip.setMovementState(playerShip.RIGHT);
+                    } else {
+                        playerShip.setMovementState(playerShip.LEFT);
+                    }
+
+                }
+
+                if (motionEvent.getY() < screenY - screenY / 8) {   // TODO Please check out if that is a good idea otherwise we have to add a fire button
+                    // Shots fired
+                    if (bullet.shoot(playerShip.getX() +
+                            playerShip.getLength() / 2, screenY, bullet.UP)) {
+
+                        soundPool.play(shootID, 1, 1, 0, 0, 1);
+                        Log.e("soundplayed", "shoot");
+                    }
+                }
+                break;
+
+            // Player has removed finger from screen
+            case MotionEvent.ACTION_UP:
+
+                if (motionEvent.getY() > screenY - screenY / 10) {
+                    playerShip.setMovementState(playerShip.STOPPED);
+                }
+
+                break;
+
+        }
+
+        return true;
+    }
 }
+
+/*
+    public class Writetodatabase extends AppCompatActivity{
+        String name;
+        int score;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+
+
+        }
+
+        public void goToDataHighscore(String name, int score){
+            Intent gotoscore = new Intent(this, Highscore.class);
+
+
+            gotoscore.putExtra("PlayersName", name);
+            gotoscore.putExtra("Score", score);
+            this.startActivity(gotoscore);
+
+        }
+
+
+
+    }}
+
+
+*/
+
+
+
+
