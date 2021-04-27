@@ -76,7 +76,7 @@
 
     <TextView
         android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="83dp"
         android:layout_marginBottom="535dp"
@@ -86,7 +86,7 @@
         android:inputType="textPersonName"
         android:text="@string/Projekt_Name_Titel"
         android:textColor="@color/game_pink"
-        android:textSize="30sp"
+        android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/playAgain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tableRow"
@@ -94,7 +94,7 @@
 
     <TextView
         android:id="@+id/editTextTextPersonName3"
-        android:layout_width="166dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginTop="34dp"
         android:layout_marginBottom="12dp"
@@ -104,7 +104,7 @@
         android:text="HIGH SCORES"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

@@ -9,7 +9,7 @@ android:background="#000000">
 
     <TextView
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="12dp"
@@ -20,7 +20,7 @@ android:background="#000000">
         android:inputType="textPersonName"
         android:text="@string/Projekt_Name_Titel"
         android:textColor="@color/game_pink"
-        android:textSize="28sp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
