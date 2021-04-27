@@ -21,7 +21,7 @@ limitations under the License. -->
     <TextView
         android:id="@+id/playerID"
         style="@style/MaterialAlertDialog.MaterialComponents.Title.Icon"
-        android:layout_width="50dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="@color/game_green" />
 
@@ -30,12 +30,14 @@ limitations under the License. -->
         style="@style/MaterialAlertDialog.MaterialComponents.Title.Icon"
         android:layout_width="120dp"
         android:layout_height="match_parent"
-        android:background="@color/game_green" />
+        android:background="@color/game_green"
+        android:fontFamily="@font/press_start_2p" />
 
     <TextView
         android:id="@+id/player_higscore"
         style="@style/MaterialAlertDialog.MaterialComponents.Title.Icon"
         android:layout_width="120dp"
         android:layout_height="match_parent"
-        android:background="@color/game_green" />
+        android:background="@color/game_green"
+        android:fontFamily="@font/press_start_2p" />
 </LinearLayout>
