@@ -21,6 +21,8 @@ import com.spaceIntruders.SpaceIntruders_game.persistence.Player_user_list_adapt
 import com.spaceIntruders.SpaceIntruders_game.viewmodel.SpaceInvadersView;
 import com.spaceIntruders.basicAplication.R;
 
+import java.util.Random;
+
 
 public class Highscore extends AppCompatActivity {
 
@@ -63,9 +65,10 @@ public class Highscore extends AppCompatActivity {
 
         if (highscore != 0) {
             winnername = scoreIntent.getStringExtra("PlayersName");
+            int uid = new Random().nextInt(10000);
             Log.e ("Score" , String.valueOf(highscore));
             Log.e ("PlayersName" , winnername);
-            Player_user toWriteUser = new Player_user(highscore, winnername, highscore);
+            Player_user toWriteUser = new Player_user(uid, winnername, highscore);
             mPlayerUserViewModel.insert(toWriteUser);
         }
 
